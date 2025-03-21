@@ -1,7 +1,7 @@
 import { CiLocationOn } from "react-icons/ci";
 import { FiChevronDown } from "react-icons/fi";
 
-const Map = () => {
+const TopBar = () => {
   return (
     <section>   
       
@@ -33,4 +33,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default TopBar;

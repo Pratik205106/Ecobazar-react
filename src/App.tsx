@@ -1,16 +1,19 @@
 import { RouterProvider } from "react-router"
 import { route } from "./Routes/Route"
-import Map from "./TopBar/Map"
-import MainHead from "./MainHeader/MainHead"
+import TopBar from "./components/TopBar"
+import MainHead from "./components/MainHead"
+import Footer from "./components/Footer"
+
 
 const App = () => {
   return (
     <div>
       <div className=" text-gray-600 border-b">
-      <Map/>
+      <TopBar/>
    </div>
     <MainHead/>
     <RouterProvider router={route}/>
+    <Footer/>
     </div>
   )
 }
