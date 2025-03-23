@@ -3,6 +3,7 @@ import { route } from "./Routes/Route"
 import TopBar from "./components/TopBar"
 import MainHead from "./components/MainHead"
 import Footer from "./components/Footer"
+import Home from "./pages/Home"
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
    </div>
     <MainHead/>
     <RouterProvider router={route}/>
+    <Home/>
     <Footer/>
     </div>
   )
