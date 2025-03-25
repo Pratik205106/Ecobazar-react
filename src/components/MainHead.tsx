@@ -9,7 +9,7 @@ const MainHead = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 mx-auto max-w-[80.4375rem]">
         
         <div className="flex items-center gap-2">
-          <img src={logoImage} alt="Ecobazar Logo" className="h-10" />
+          <img src={logoImage} alt="EcoBazar Logo" className="h-10" />
           <h1 className="text-3xl font-bold text-[#000000]">Ecobazar</h1>
         </div>
 
