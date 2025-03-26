@@ -2,7 +2,12 @@
 
 const Product = () => {
   return (
-    <div>Product</div>
+    <section>
+      <h1 className="text-[38px] font-bold">Popular Products</h1>
+      <div>
+        {}
+      </div>
+    </section>
   )
 }
 

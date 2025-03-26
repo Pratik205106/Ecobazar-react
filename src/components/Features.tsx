@@ -9,7 +9,7 @@ const Features = () => {
     <div className="h-[128px] w-full bg-white shadow-xl ">
     <div className="max-w-[1320px] mx-auto grid grid-cols-4 gap-[40px] py-4">
       
-      {/* Free Shipping */}
+      
       <div className="flex items-center space-x-4">
         <img src={freeShipping} alt="Free Shipping" className="h-10 w-10" />
         <div className="flex flex-col">
@@ -18,7 +18,7 @@ const Features = () => {
         </div>
       </div>
   
-      {/* Customer Support */}
+     
       <div className="flex items-center space-x-4">
         <img src={customerSupport} alt="Customer Support 24/7" className="h-10 w-10" />
         <div className="flex flex-col">
@@ -27,7 +27,7 @@ const Features = () => {
         </div>
       </div>
   
-      {/* Secure Payment */}
+      
       <div className="flex items-center space-x-4">
         <img src={securePayment} alt="100% Secure Payment" className="h-10 w-10" />
         <div className="flex flex-col">
@@ -36,7 +36,7 @@ const Features = () => {
         </div>
       </div>
   
-      {/* Money-Back Guarantee */}
+      
       <div className="flex items-center space-x-4">
         <img src={moneyGuarantee} alt="Money-Back Guarantee" className="h-10 w-10" />
         <div className="flex flex-col">
