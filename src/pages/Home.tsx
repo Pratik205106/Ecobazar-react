@@ -1,3 +1,4 @@
+import Banner from "../components/Banner";
 import Category from "../components/Category";
 import Features from "../components/Features";
 import HeroSection from "../components/HeroSection";
@@ -13,6 +14,7 @@ const Home = () => {
 <Features/> 
 <Category/>
 <Products/>
+<Banner/>
     </>
   );
 };

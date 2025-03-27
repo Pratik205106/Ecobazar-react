@@ -1,5 +1,5 @@
-import { CategoriesData, NavItem, PopularProducts } from "../../types/types";
-import { PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
+import { BannersData, CategoriesData, NavItem, PopularProducts } from "../../types/types";
+import { BANNER_IMAGE, PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
 
 export const navItems: NavItem[] = [
 {name: "Home", 
@@ -34,6 +34,7 @@ export const categoryData:CategoriesData = [
   },
   {
     title:"Fresh Vegetables",
+    featured:true,
     image:STATICS_IMAGE.freshVeg
   },
   {
@@ -83,42 +84,78 @@ export const categoryData:CategoriesData = [
  export const PopularProduct:PopularProducts = [
   {
 title:"Green Apple",
-image:PRODUCTS_IMAGE.greenApple
+image:PRODUCTS_IMAGE.greenApple,
+number:"$14.99",
+num:"$20.99",
  },
  {
   title:"Fresh Indian Malta",
-  image:PRODUCTS_IMAGE.freshMalta
+  image:PRODUCTS_IMAGE.freshMalta,
+  number:"$20.00",
  },
  {
   title:"Chinese cabbage",
-  image:PRODUCTS_IMAGE.chineseCabbage
+  image:PRODUCTS_IMAGE.chineseCabbage,
+  number:"$12.00",
  },
  {
   title:"Green Lettuce",
-  image:PRODUCTS_IMAGE.greenLettuce
+  image:PRODUCTS_IMAGE.greenLettuce,
+  number:"$9.00",
  },
  {
   title:"Eggplant",
-  image:PRODUCTS_IMAGE.eggPlant
+  image:PRODUCTS_IMAGE.eggPlant,
+  number:"$34.00",
  },
  {
   title:"Big Potatoes",
-  image:PRODUCTS_IMAGE.potatoes
+  image:PRODUCTS_IMAGE.potatoes,
+  number:"$20.00",
  },
  {
   title:"Corn",
-  image:PRODUCTS_IMAGE.corn
+  image:PRODUCTS_IMAGE.corn,
+  number:"$20.00",
  },
  {
   title:"Fresh Cauliflower",
-  image:PRODUCTS_IMAGE.cauliflower
+  image:PRODUCTS_IMAGE.cauliflower,
+  number:"$12.00",
  },
  {
   title:"Green Capsicum",
-  image:PRODUCTS_IMAGE.capsicum
+  image:PRODUCTS_IMAGE.capsicum,
+  number:"$9.00",
+  num:"20.99",
  },
  {
   title:"Green Chili",
-  image:PRODUCTS_IMAGE.chili
+  image:PRODUCTS_IMAGE.chili,
+  number:"$34.00",
  },
+]; 
+
+export const BannerData:BannersData = [ 
+{ 
+  title:"Sale of the Month", 
+  subtitle:"Best Deals",
+  countDown:true,
+  buttonText:"Shop Now",
+  image:BANNER_IMAGE.saleOfMonth 
+},
+{
+  title:"Low-Fat Meat",
+  subtitle:"85% Fat Free",
+  price:"$79.99",
+  buttonText:"Shop Now",
+  image:BANNER_IMAGE.lowFatMeat
+},
+{
+  title:"100% Fresh Fruit",
+  subtitle:"Summer Sale",
+  discount:"64% OFF",
+  buttonText:"Shop Now",
+  image:BANNER_IMAGE.freshFruits
+}
 ]; 

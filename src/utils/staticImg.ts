@@ -26,6 +26,10 @@ import capsicum from "../assets/image/capsicum.png";
 import chili from "../assets/image/Chili.png";
 
 
+//Banner section//
+import saleOfMonth from "../assets/image/SaleOfMonth.png";
+import lowFatMeat from "../assets/image/LowFatMeat.png";
+import freshFruits from "../assets/image/FreshFruits.png";
 
 export const STATICS_IMAGE = {
     mixFruits,
@@ -54,5 +58,11 @@ export const PRODUCTS_IMAGE = {
     cauliflower,
     capsicum,
     chili,
+};
+
+export const BANNER_IMAGE = {
+    saleOfMonth,
+    lowFatMeat,
+    freshFruits,
 };
 
