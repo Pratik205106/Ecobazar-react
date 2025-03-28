@@ -10,29 +10,39 @@ const HeroSection = () => {
       <div className="h-[37.5rem] w-[82.4375rem] mx-auto my-[1.5rem]">
         <div className="grid grid-cols-2">
           <div className="w-[54.5rem] relative ">
-            <h1 className="text-5xl text-white leading-tight absolute top-[8.125rem] left-[3.75rem] font-bold">
-              Fresh & Healthy
-              <br />
-              Organic Food
-            </h1>
+          <div className="relative">
+  <h1 className="text-5xl text-white leading-tight absolute top-[8.125rem] left-[3.75rem] font-bold">
+    Fresh & Healthy
+    <br />
+    Organic Food
+  </h1>
 
-            <div className="absolute border-l-4 border-green-600 h-[4.0625rem] left-[3.75rem] top-[16.875rem]"></div>
+  <div className="relative">
+  <div className="absolute left-[3.75rem] top-[16.875rem] border-l-4 border-green-600 h-[4.0625rem]"></div>
 
-            <div className="absolute top-[16.5625rem] left-[5rem] flex items-center space-x-3">
-              <h2 className="text-2xl text-white font-sans">Sale up to</h2>
-              <button className="h-[2.375rem] w-[6.75rem] bg-orange-400 text-white rounded-md font-bold">
-                30% OFF
-              </button>
-            </div>
+  <div className="absolute left-[5rem] top-[16.5625rem] flex items-center space-x-3">
+    <h2 className="text-2xl text-white font-sans">Sale up to</h2>
+    <button className="h-[2.375rem] w-[6.75rem] bg-orange-400 text-white rounded-md font-bold">
+      30% OFF
+    </button>
+  </div>
 
-            <h3 className="absolute text-white top-[19.6875rem] left-[5rem]">
-              Free shipping on all your order.
-            </h3>
+  <h3 className="absolute text-white top-[19.6875rem] left-[5rem]">
+    Free shipping on all your order.
+  </h3>
+</div>
 
-            <button className="absolute text-green-600 h-[3.1875rem] w-[11.9375rem] bg-white rounded-3xl top-[21.875rem] left-[5rem] font-semibold flex items-center justify-center space-x-2">
-              <span>Shop now</span>
-              <IoIosArrowRoundForward size={24} />
-            </button>
+
+  <h3 className="absolute text-white top-[19.6875rem] left-[5rem]">
+    Free shipping on all your order.
+  </h3>
+
+  <button className="absolute text-green-600 h-[3.1875rem] w-[11.9375rem] bg-white rounded-3xl top-[21.875rem] left-[5rem] font-semibold flex items-center justify-center space-x-2">
+    <span>Shop now</span>
+    <IoIosArrowRoundForward size={24} />
+  </button>
+</div>
+
 
             <img
               src={homeImg}

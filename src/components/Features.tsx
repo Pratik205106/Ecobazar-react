@@ -6,8 +6,8 @@ import moneyGuarantee from "../assets/icon/package.png";
 
 const Features = () => {
   return (
-    <div className="h-[128px] w-full bg-white shadow-xl ">
-    <div className="max-w-[1320px] mx-auto grid grid-cols-4 gap-[40px] py-4">
+    <div className="h-[8rem] w-[82.5rem] border shadow-lg mt-[1.5rem] mx-auto bg-white rounded-lg">
+    <div className="  grid grid-cols-4 m-[2.5rem]">
       
       
       <div className="flex items-center space-x-4">

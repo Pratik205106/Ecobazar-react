@@ -31,6 +31,16 @@ import saleOfMonth from "../assets/image/SaleOfMonth.png";
 import lowFatMeat from "../assets/image/LowFatMeat.png";
 import freshFruits from "../assets/image/FreshFruits.png";
 
+
+//DiscountBanner//
+import mixVeg from "../assets/image/mixVeg.jpg";
+
+
+//LatestNews section//
+import orangeSlice from "../assets/image/orangeSlice.png";
+import eggBoil from "../assets/image/Egg.png";
+import maecenas from "../assets/image/Maecenas.png";
+
 export const STATICS_IMAGE = {
     mixFruits,
     freshVeg,
@@ -66,3 +76,12 @@ export const BANNER_IMAGE = {
     freshFruits,
 };
 
+export const DISCOUNT_IMAGE ={
+    mixVeg,
+};
+
+export const LATEST_IMAGE ={
+    orangeSlice,
+    eggBoil,
+maecenas,
+};

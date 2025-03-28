@@ -1,5 +1,5 @@
-import { BannersData, CategoriesData, NavItem, PopularProducts } from "../../types/types";
-import { BANNER_IMAGE, PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
+import { BannersData, CategoriesData, DiscountsData, LatestNewsData, NavItem, PopularProducts } from "../../types/types";
+import { BANNER_IMAGE, DISCOUNT_IMAGE, LATEST_IMAGE, PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
 
 export const navItems: NavItem[] = [
 {name: "Home", 
@@ -142,20 +142,46 @@ export const BannerData:BannersData = [
   subtitle:"Best Deals",
   countDown:true,
   buttonText:"Shop Now",
-  image:BANNER_IMAGE.saleOfMonth 
+  image:BANNER_IMAGE.saleOfMonth, 
 },
 {
   title:"Low-Fat Meat",
   subtitle:"85% Fat Free",
   price:"$79.99",
   buttonText:"Shop Now",
-  image:BANNER_IMAGE.lowFatMeat
+  image:BANNER_IMAGE.lowFatMeat,
 },
 {
   title:"100% Fresh Fruit",
   subtitle:"Summer Sale",
   discount:"64% OFF",
   buttonText:"Shop Now",
-  image:BANNER_IMAGE.freshFruits
+  image:BANNER_IMAGE.freshFruits,
 }
 ]; 
+
+export const DiscountData:DiscountsData = 
+{
+  title:"SUMMER SALE",
+  discount:"37%",
+  image:DISCOUNT_IMAGE.mixVeg,
+}; 
+
+const LatestNews:LatestNewsData []=
+[
+{
+  title:"Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.",
+  image:LATEST_IMAGE.orangeSlice,
+  date:{
+    day:18,
+    month:"Nov"
+  },
+  category:"Food",
+  author:"By Admin",
+  commentCount:"65 Comments",
+},
+];
+{
+
+}
+
