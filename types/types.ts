@@ -49,6 +49,5 @@ num?:string;
       month: string;
     },
     category:string;
-    author:string;
     commentCount:string;
   }

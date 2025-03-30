@@ -1,4 +1,4 @@
-import { BannersData, CategoriesData, DiscountsData, LatestNewsData, NavItem, PopularProducts } from "../../types/types";
+import { BannersData, CategoriesData, DiscountsData,  LatestNewsData,  NavItem, PopularProducts } from "../../types/types";
 import { BANNER_IMAGE, DISCOUNT_IMAGE, LATEST_IMAGE, PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
 
 export const navItems: NavItem[] = [
@@ -167,7 +167,7 @@ export const DiscountData:DiscountsData =
   image:DISCOUNT_IMAGE.mixVeg,
 }; 
 
-const LatestNews:LatestNewsData []=
+const LatestNews:LatestNewsData [] =
 [
 {
   title:"Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.",
@@ -177,11 +177,29 @@ const LatestNews:LatestNewsData []=
     month:"Nov"
   },
   category:"Food",
-  author:"By Admin",
   commentCount:"65 Comments",
 },
-];
 {
+  title:"Eget lobortis lorem lacinia. Vivamus pharetra semper,",
+  image:LATEST_IMAGE.eggBoil,
+  date:{
+    day:18,
+    month:"Nov"
+  },
+  category:"Food",
+  commentCount:"65 Comments",
+},
 
-}
+  {
+    title:"Maecenas blandit risus elementum mauris malesuada.",
+    image:LATEST_IMAGE.maecenas,
+    date:{
+      day:18,
+      month:"Nov"
+    },
+    category:"Food",
+    commentCount:"65 Comments",
+  },
+];
+export default LatestNews;
 
