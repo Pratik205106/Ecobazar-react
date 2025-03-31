@@ -1,5 +1,5 @@
-import { BannersData, CategoriesData, DiscountsData,  LatestNewsData,  NavItem, PopularProducts } from "../../types/types";
-import { BANNER_IMAGE, DISCOUNT_IMAGE, LATEST_IMAGE, PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
+import { BannersData, CategoriesData, ClientInfoData, companyLogo, DiscountsData,  InstaPostData,  LatestNewsData,  NavItem, PopularProducts, SocialMedia } from "../../types/types";
+import { BANNER_IMAGE, CLIENT_IMAGE, DISCOUNT_IMAGE, LATEST_IMAGE, LOGO_IMAGE, ICON_IMAGE, POST_IMAGE, PRODUCTS_IMAGE, STATICS_IMAGE } from "./staticImg";
 
 export const navItems: NavItem[] = [
 {name: "Home", 
@@ -165,9 +165,10 @@ export const DiscountData:DiscountsData =
   title:"SUMMER SALE",
   discount:"37%",
   image:DISCOUNT_IMAGE.mixVeg,
+  note:"Free on all your order, Free Shipping and  30 days money-back guarantee",
 }; 
 
-const LatestNews:LatestNewsData [] =
+export const LatestNews:LatestNewsData [] =
 [
 {
   title:"Curabitur porttitor orci eget neque accumsan venenatis. Nunc fermentum.",
@@ -203,3 +204,87 @@ const LatestNews:LatestNewsData [] =
 ];
 export default LatestNews;
 
+export const ClientInfo:ClientInfoData []=
+[
+  {
+title:"Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna dictum, bibendum cursus velit sodales. Donec sed neque eget",
+image:CLIENT_IMAGE.robertFox,
+clientName:"Robert Fox",
+},
+{
+  title:"Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna dictum, bibendum cursus velit sodales. Donec sed neque eget",
+  image:CLIENT_IMAGE.dianneRussell,
+  clientName:"Dianne Russell",
+},
+{
+  title:"Pellentesque eu nibh eget mauris congue mattis mattis nec tellus. Phasellus imperdiet elit eu magna dictum, bibendum cursus velit sodales. Donec sed neque eget",
+  image:CLIENT_IMAGE.eleanorPena,
+  clientName:"Eleanor Pena",
+},
+];
+export type ClientInfo = ClientInfoData[];
+
+export const companyLogoImg:companyLogo[]=
+[
+  {
+    image:LOGO_IMAGE.stepsImg
+  },
+  {
+    image:LOGO_IMAGE.mangoImg
+  },
+  {
+    image:LOGO_IMAGE.foodNetwork
+  },
+  {
+    image:LOGO_IMAGE.foodImg
+  },
+  {
+    image:LOGO_IMAGE.bookOFFLogo
+  },
+  {
+    image:LOGO_IMAGE.gSeries
+  },
+];
+export type companyLogoImg=companyLogo[];
+
+export const InstaPost:InstaPostData[]=
+[
+  {
+    image:POST_IMAGE.tomatoImg
+  },
+  {
+image:POST_IMAGE.instaLeaf
+  },
+  {
+    image:POST_IMAGE.instaPost
+  },
+  {
+    image:POST_IMAGE.instaChili
+  },
+  {
+    image:POST_IMAGE.instaGreenLeaf
+  },
+  {
+    image:POST_IMAGE.instaOrange
+  },
+];
+export type InstaPost=InstaPostData[];
+
+
+export const SocialMediaData:SocialMedia[]=
+[
+  {
+    image:ICON_IMAGE.facebookIcon,
+  },
+  {
+    image:ICON_IMAGE.twitterIcon
+  },
+  {
+    image:ICON_IMAGE.pinterestIcon
+  },
+  {
+    image:ICON_IMAGE.instagramIcon
+  },
+
+];
+export type SocialMediaData=SocialMedia[];

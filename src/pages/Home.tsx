@@ -6,6 +6,11 @@ import HeroSection from "../components/HeroSection";
 import FeatureProduct from "../components/FeatureProduct";
 import LatestNews from "../components/LatestNews";
 import Products from "../components/Products";
+import Testimonials from "../components/Testimonials";
+import CompanyLogo from "../components/CompanyLogo";
+import InstaSec from "../components/InstaSec";
+import Subscribe from "../components/Subscribe";
+
 
 
 
@@ -22,6 +27,10 @@ const Home = () => {
 <DiscountBanner/>
 <FeatureProduct/>
 <LatestNews/>
+<Testimonials/>
+<CompanyLogo/>
+<InstaSec/>
+<Subscribe/>
     </>
   );
 };

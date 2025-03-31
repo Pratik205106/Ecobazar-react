@@ -12,7 +12,20 @@ const LatestNewsComponent = () => {
   <div className="grid grid-cols-3 mt-[2rem]">
    {LatestNews.map((news, index)=>(
 <div key={index} className="relative"> 
-   <img src={news.image} alt={news.title} height={494} width={424}/>
+   <img src={news.image} alt={news.title} height={494} width={424} className="object-cover"/>
+  
+   <div className="absolute h-[3.625rem] w-[3.625rem] top-60 left-4 bg-white rounded-md shadow-md"> {/* Adjusted positioning and styling */}
+              <div className="p-2 flex flex-col items-center"> {/*Added padding and flex for centering*/}
+                <div className="text-[#1A1A1A] font-medium text-lg">
+                  {news.date.day}
+                </div>
+                <div className="text-[#808080] font-medium text-sm">
+                  {news.date.month}
+                </div>
+              </div>
+            </div>
+
+
    <div className="h-[10.625rem] w-[26.5rem] shadow bg-[#FFFFFF] border-[#00000014]">
 <main className="h-[5.1875rem] w-[23.5rem] mx-6">
 <div className="flex">
@@ -23,7 +36,10 @@ const LatestNewsComponent = () => {
    </li>
    <li className="text-gray-400 flex  items-center">
   <FaUser className="mr-1"/>
-   <span>By Admin</span>
+   <span className="flex gap-2">By
+       <h2 className="text-black">Admin
+         </h2>
+         </span>
    </li>
    <li className="flex items-center">
     <GoComment/>
@@ -33,7 +49,7 @@ const LatestNewsComponent = () => {
    </li>
 </ul>
 </div>
-<div className="mt-1 text-[#1A1A1A] font-medium">
+<div className="mt-1 text-[#1A1A1A] font-medium text-lg hover:text-[#2C742F]">
    {news.title}
 </div>
 </main>

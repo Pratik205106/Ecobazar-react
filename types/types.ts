@@ -37,8 +37,9 @@ num?:string;
     title:string;
     image:string;
     discount?:string;
+    note:string;
   };
-
+export type DiscountData = DiscountsData[];
 
 
   export interface LatestNewsData{
@@ -50,4 +51,27 @@ num?:string;
     },
     category:string;
     commentCount:string;
-  }
+  };
+export type LatestNews= LatestNewsData[];
+
+export interface ClientInfoData{
+    title:string;
+    image:string;
+    clientName:string;
+  };
+export type ClientInfo = ClientInfoData[];
+  
+export interface companyLogo {
+  image:string;
+};
+export type companyLogoImg = companyLogo[];
+
+export interface InstaPostData{
+  image:string;
+};
+export type InstaPost=InstaPostData[];
+
+export interface SocialMedia{
+  image:string;
+};
+export type SocialMediaData=SocialMedia[];
