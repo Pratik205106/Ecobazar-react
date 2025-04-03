@@ -10,6 +10,7 @@ import Testimonials from "../components/Testimonials";
 import CompanyLogo from "../components/CompanyLogo";
 import InstaSec from "../components/InstaSec";
 import Subscribe from "../components/Subscribe";
+import HotDeals from "../components/HotDeals";
 
 
 
@@ -24,6 +25,7 @@ const Home = () => {
 <Category/>
 <Products/>
 <Banner/>
+<HotDeals/>
 <DiscountBanner/>
 <FeatureProduct/>
 <LatestNews/>

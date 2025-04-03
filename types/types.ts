@@ -14,8 +14,9 @@ export interface NavItem{
   export interface PopularProduct {
 title:string;
 image:string;
-number:string;
-num?:string;
+rate:string;
+fixRate?:string;
+star?: string | number;
   };
 
   export type PopularProducts = PopularProduct[];

@@ -3,7 +3,7 @@ import { BannerData } from "../utils/data"
 
 const Banner = () => {
   return (
-    <section className="h-[33.5rem] w-[82.5rem] mx-auto  m-[3.75rem]">
+    <section className="h-[33.5rem] max-w-[82.5rem] mx-auto  m-[3.75rem]">
       <div className="grid grid-cols-3">
 {BannerData.map((banner, index)=> (
   <div key={index} className="relative">

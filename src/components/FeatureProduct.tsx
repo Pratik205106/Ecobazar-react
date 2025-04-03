@@ -9,7 +9,13 @@ const FeatureProduct = () => {
     <h1 className="text-[2rem] font-semibold">Featured Products</h1>
     <div className="grid grid-cols-5 mt-[2rem]">
        { PopularProduct.slice(0,5).map((value, index)=>( 
-    <Card key={index} number={value.number} title={value.title} image={value.image} />
+    <Card 
+     key={index} 
+     rate={value.rate} 
+     title={value.title} 
+     image={value.image}
+     star={value.star as number}
+     />
   ))}
     </div>
     </section>

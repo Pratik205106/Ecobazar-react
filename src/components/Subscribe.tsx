@@ -4,7 +4,7 @@ import { SocialMediaData } from "../utils/data";
 const Subscribe = () => {
   return (
    
-    <section className="h-[10.125rem] bg-[#E6E6E6] mt-[3.75rem]">
+    <section className="h-[10.125rem] max-w-[120rem] bg-[#E6E6E6] mt-[3.75rem]">
         <div className="ml-[12rem]">
 <div className="h-[5.125rem] w-[28rem] pt-[40px]">
 <h1 className="font-semibold text-[1.5rem] text-[#1A1A1A]">Subcribe our Newsletter</h1>
@@ -17,11 +17,11 @@ const Subscribe = () => {
 </div>
 
 </div>
-<div className="h-[2.5rem] w-[11.5rem] flex gap-2 mx-[82.5rem]">
+<div className="h-[2.5rem] w-[11.5rem] flex gap-2 mx-[81.5rem]">
 {SocialMediaData.map((media, index)=>
 (
-  <div key={index}>
-    <img src={media.image} alt="" />
+  <div key={index} className="">
+    <img src={media.image} alt="" className="h-10 w-10"/>
   </div>
 ))}
 </div>

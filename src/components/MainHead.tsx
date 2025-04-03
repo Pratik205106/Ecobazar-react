@@ -6,7 +6,7 @@ import { IoSearch } from "react-icons/io5";
 const MainHead = () => {
   return (
     <div className="py-4">
-      <div  className="grid grid-cols-1 md:grid-cols-3 items-center px-6 py-2 text-sm mx-auto max-w-[82.4375rem]">
+      <div  className="grid grid-cols-1 md:grid-cols-3 items-center px-6 py-2 text-sm mx-auto max-w-[120rem]">
         
         <div className="flex items-center gap-2">
           <img src={logoImage} alt="EcoBazar Logo" className="h-10" />
@@ -32,7 +32,7 @@ const MainHead = () => {
           <div className="hidden md:block border-l border-gray-400 h-6 mx-4"></div>
           <BsHandbag className="text-4xl cursor-pointer" />
           <div>
-            <h1 className="text-[0.8125rem]">Shopping cart:</h1>
+            <h1 className="text-[0.8125rem] text-[#4D4D4D]">Shopping cart:</h1>
             <h1 className="font-bold text-[0.873rem]">$57.00</h1>
           </div>
         </div>

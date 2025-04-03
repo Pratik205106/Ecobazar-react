@@ -7,7 +7,7 @@ const DiscountBanner = () => {
   return (
  <section>
     <div>
-    <div className=" max-w-[1320px] max-h-[358px] overflow-hidden mx-auto relative">
+    <div className=" max-w-[82.5rem] max-h-[358px] overflow-hidden mx-auto relative">
       <img src={DiscountData.image}  alt={DiscountData.title} className="mx-auto object-cover rounded-2xl " />
       <div className="absolute top-0 left-0 p-8  ml-[51.75rem] text-white">
             <h2 className="h-[1rem] w-[7rem] text-semibold font-bold mb-2 ">

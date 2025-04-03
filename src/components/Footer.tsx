@@ -8,7 +8,7 @@ import securePayment from "../assets/image/lock.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4 md:px-10 lg:px-20">
+    <footer className="bg-gray-900 h-[23rem] max-w-[120rem] text-white py-12 px-4 md:px-10 lg:px-20">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
           <div>

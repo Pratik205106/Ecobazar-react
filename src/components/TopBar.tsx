@@ -3,11 +3,11 @@ import { FiChevronDown } from "react-icons/fi";
 
 const TopBar = () => {
   return (
-    <section>   
+    <section className="border-b border-[#E5E5E5] ">   
       
-        <div  className="grid grid-cols-1 md:grid-cols-3 items-center px-6 py-2 text-sm mx-auto max-w-[82.4375rem]">
+        <div  className="grid grid-cols-1 md:grid-cols-3 items-center px-6 py-2 text-sm mx-auto max-w-[120rem]">
         <div className="md:col-span-1 flex items-center gap-2">
-          <CiLocationOn className="text-lg" />
+          <CiLocationOn className="text-lg"/>
           <span>Store Location: Lincoln- 344, Illinois, Chicago, USA</span>
         </div>
 
