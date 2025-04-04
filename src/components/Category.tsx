@@ -3,7 +3,8 @@ import { categoryData } from '../utils/data'
 
 const Category = () => {
   return (
-    <div className='max-w-[82.5rem] ml-[11.875rem] mx-auto mt-[3.875rem]'>
+    <section>
+    <div className='max-w-[82.5rem] mx-auto mt-[3.875rem]'>
       <h1 className='text-[2.375rem] font-semibold mb-[2rem]'>Popular Categories</h1>
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6'>
       
@@ -18,6 +19,7 @@ const Category = () => {
       ))}
     </div>
     </div>
+    </section>
   )
 } 
 

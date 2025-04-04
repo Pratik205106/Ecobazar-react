@@ -15,15 +15,15 @@ const HotDeals = () => {
     <>
       <section className=" h-[73.1875rem] max-w-[82.4375rem] mx-auto">
         <div className="h-[2.375rem] max-w-[82.4375rem]">
-          <h1 className="font-semibold text-[#1A1A1A] text-[2rem] mb-4">
+          <h1 className="font-semibold text-[#1A1A1A] text-[2rem] mt-4">
             Hot Deals
           </h1>
         </div>
-        <div className="flex ">
-          <div className="h-[41.790rem] w-[33rem] mx-auto shadow-md">
+        <div className="flex">
+          <div className="h-[40.875rem] w-[55rem] mx-auto shadow-md">
             <img src={greenApple} alt="" />
           </div>
-          <div className="grid grid-cols-3 h-[20.4375rem]">
+          <div className="grid grid-cols-3 h-[20.4375rem] w-full">
             {selectedProducts.map((Product, index) => (
               <Card
                 key={index}
@@ -35,7 +35,7 @@ const HotDeals = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-5 h-[20.4375rem]">
+        <div className="grid grid-cols-5 h-[20.4375rem] w-full">
           {dealProducts.map((Product, index) => (
             <Card
               key={index}

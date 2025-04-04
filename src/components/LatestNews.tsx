@@ -6,7 +6,7 @@ import { FaUser } from "react-icons/fa";
 
 const LatestNewsComponent = () => {
   return (
-    
+    <>
      <section className="h-[35.25rem] max-w-[82.5rem] mx-auto my-[3.75rem]">   
   <h1 className="text-[2rem] text-center font-semibold">Latest News</h1>
   <div className="grid grid-cols-3 mt-[2rem]">
@@ -58,7 +58,7 @@ const LatestNewsComponent = () => {
    ))}
   </div>
      </section>
-    
+    </>
   );
 };
 

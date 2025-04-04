@@ -2,7 +2,8 @@ import { ClientInfo } from "../utils/data";
 
 const Testimonials = () => {
     return (
-        <section className="bg-[#F2F2F2] max-w-[120rem] mx-auto h-[28.1875rem]">
+        <>
+        <section className="bg-[#F2F2F2] mx-auto h-[28.1875rem]">
             <h1 className="font-semibold text-2xl text-[#1A1A1A] ml-[11.6875rem] max-w-[120rem] pt-[3.75rem]">
                 Client Testimonials
             </h1>
@@ -30,6 +31,7 @@ const Testimonials = () => {
                 ))}
             </main>
         </section>
+        </>
     );
 };
 
