@@ -1,8 +1,13 @@
+import ShopDiscountBanner from "../ShopComponents/ShopDiscountBanner"
+
+
 
 
 const Shop = () => {
   return (
-    <div>Shop</div>
+   <>
+  <ShopDiscountBanner/>
+   </>
   )
 }
 

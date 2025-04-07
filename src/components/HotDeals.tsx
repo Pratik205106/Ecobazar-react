@@ -20,10 +20,11 @@ const HotDeals = () => {
           </h1>
         </div>
         <div className="flex">
-          <div className="h-[40.875rem] w-[55rem] mx-auto shadow-md">
+          <div className="h-[40.875rem] w-[33rem] mx-auto shadow-md">
             <img src={greenApple} alt="" />
+  
           </div>
-          <div className="grid grid-cols-3 h-[20.4375rem] w-full">
+          <div className="grid grid-cols-3 h-[20.4375rem] w-[16.5rem]">
             {selectedProducts.map((Product, index) => (
               <Card
                 key={index}
@@ -35,7 +36,7 @@ const HotDeals = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-5 h-[20.4375rem] w-full">
+        <div className="grid grid-cols-5 h-[20.4375rem] w-[16.5rem]">
           {dealProducts.map((Product, index) => (
             <Card
               key={index}

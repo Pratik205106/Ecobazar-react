@@ -2,6 +2,7 @@ import homeImg from "../assets/image/bgImage.png";
 import vegBag from "../assets/image/vegBag.png";
 import bgLeaf from "../assets/image/bgLeaf.png";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Buttons from "../ui/Buttons";
 
 
 const HeroSection = () => {
@@ -37,10 +38,13 @@ const HeroSection = () => {
     Free shipping on all your order.
   </h3>
 
-  <button className="absolute text-green-600 h-[3.1875rem] w-[11.9375rem] bg-white rounded-3xl top-[21.875rem] left-[5rem] font-semibold flex items-center justify-center space-x-2">
-    <span>Shop now</span>
-    <IoIosArrowRoundForward size={24} />
-  </button>
+  <Buttons 
+  label="Shop now"
+  bgColor="bg-[#FFFFFF]"
+  textColor="text-[#00B207]"
+  onClick={() => console.log("Button clicked!")}
+  className="top-[21.875rem] left-[5rem]"
+/>
 </div>
 
 

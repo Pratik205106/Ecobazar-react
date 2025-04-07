@@ -1,3 +1,4 @@
+import Buttons from "../ui/Buttons";
 import { DiscountData } from "../utils/data";
 
 
@@ -23,6 +24,14 @@ const DiscountBanner = () => {
             <p className="h-[3rem] w-[27.5625rem] mt-[1rem] mr-[3.1875rem]">
               {DiscountData.note}
             </p>
+
+            <Buttons 
+  label="Shop now"
+  bgColor="bg-[#00B207]"
+  textColor="text-[#FFFFFF]"
+  onClick={() => console.log("Button clicked!")}
+  className="mt-[1.75rem]"
+/>
           </div>
 
     </div>    

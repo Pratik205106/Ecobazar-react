@@ -7,8 +7,8 @@ import moneyGuarantee from "../assets/icon/package.png";
 const Features = () => {
   return (
     <section>
-    <div className="h-[8rem] w-[82.5rem] border shadow-lg mt-[1.5rem] mx-auto bg-white rounded-lg">
-    <div className="  grid grid-cols-4 m-[2.5rem]">
+    <div className="h-[8rem] w-[82.5rem] shadow-md border mt-[1.5rem] flex items-center justify-center mx-auto bg-white rounded-lg">
+    <div className="flex items-center gap-16 m-[2.5rem]">
       
       
       <div className="flex items-center space-x-4">
