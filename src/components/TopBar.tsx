@@ -3,7 +3,7 @@ import { CiLocationOn } from "react-icons/ci";
 
 const TopBar = () => {
   return (
-    <section className="border-b border-[#E5E5E5]">
+    <section className="border-b border-[#E5E5E5] max-w-full">
       <div className="flex items-center justify-center px-6 py-2 text-sm h-[2.625rem] gap-[710px]">
         {/* Store Location */}
         <div className="flex items-center gap-2">

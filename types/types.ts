@@ -76,3 +76,12 @@ export interface SocialMedia{
   image:string;
 };
 export type SocialMediaData=SocialMedia[];
+
+export interface ProductType {
+  title: string;
+  rate: string;
+  fixRate?:string;
+  image: string;
+  star?: number | number;
+  badge?: string;
+}

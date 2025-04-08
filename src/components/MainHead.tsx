@@ -6,7 +6,7 @@ import { IoSearch } from "react-icons/io5";
 const MainHead = () => {
   return (
 
-    <section className="py-4">
+    <section className="py-4 max-w-full">
       <div  className="flex items-center justify-center gap-[305px] px-6 py-2 text-sm mx-auto">
         
         <div className="flex items-center gap-2">

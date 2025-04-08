@@ -1,12 +1,17 @@
 import { NavLink, Outlet } from "react-router";
 import phoneImg from "../assets/icon/phone.png";
 import { navItems } from "../utils/data";
+import TopBar from "../components/TopBar";
+import MainHead from "../components/MainHead";
 
 const MainLayOut = () => {
   return (
     <>
-    <section className="bg-[#333333]"> 
-      <nav className="container mx-auto flex items-center justify-between py-4 px-28 h-[3.75rem] "> 
+    <TopBar/>
+    <MainHead/>
+    <div className="bg-[#333333]"> 
+      <section>
+      <nav className="container mx-auto flex items-center justify-between py-4 px-2 h-[3.75rem] "> 
         <div className="w-full">
         <ul className="flex gap-5 items-center ">
           {navItems.map((item, index) => (
@@ -26,8 +31,8 @@ const MainLayOut = () => {
           <span className="text-white text-[21px]">(219) 555-0114</span>
         </div>
       </nav>
-    
-    </section>
+      </section>
+    </div>
     <main>
         <Outlet />
       </main>

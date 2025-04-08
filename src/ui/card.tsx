@@ -10,10 +10,10 @@ interface Props{
     star?: number;
     rate:string;
     fixRate?:string;
-  
+    badge?:string;
 } 
 
-const Card = ({image,title,rate,star}:Props) => {
+const Card = ({image,title,rate,star,badge, fixRate}:Props) => {
   const newStar = star as number || 0
 const renderStars = (rating: number)=> {
   const fullStars = Math.floor(Number(rating));
@@ -43,8 +43,21 @@ const renderStars = (rating: number)=> {
 
   return (
     <div className="border group p-4 shadow-md relative transition-all hover:shadow-[#00B207]"> 
+      
+      {badge && (
+        <span className={`absolute top-2 left-2 z-10 px-2 py-1 text-xs font-bold rounded 
+        ${badge==="Out of stock" ? "bg-[#1A1A1A]": "bg-[#EA4B48]"} text-white`}>
+{badge}
+        </span>
+      )}
+      
       {/*Image*/}
-    <img src={image} height={327} width={264} className="object-cover rounded-lg" alt="" />
+    <img 
+    src={image} 
+    height={327} 
+    width={264} 
+    className="object-cover rounded-lg" 
+    alt="" />
 
 {/*floating Buttons*/}
     <div className=" hidden group-hover:flex absolute top-2 right-2 flex-col gap-2">
@@ -73,9 +86,14 @@ const renderStars = (rating: number)=> {
   {/* Product Info */} 
     <div className='mt-2 text-lg ml-[0.75rem]'>
     <p className="text-[#4D4D4D] hover:text-[#2C742F] font-medium">{title}</p> 
-    <div>
-    <p className="text-[1rem] text-[#1A1A1A]">{rate}</p>
-  </div> 
+
+   {/* Display both rate and fixRate if fixRate exists */}
+   <div className="flex items-center gap-2">
+          <p className="text-[1rem] text-[#1A1A1A]">{rate}</p>
+          {fixRate && (
+            <p className="text-[0.875rem] text-[#888] line-through">{fixRate}</p>
+          )}
+        </div>
 
   {/* Add to Cart Button */}
     <div className="flex items-center ml-[200px] absolute top-60 right-2 flex-col">

@@ -24,6 +24,10 @@ import corn from "../assets/image/corn.png";
 import cauliflower from "../assets/image/cauliflower.png";
 import capsicum from "../assets/image/capsicum.png";
 import chili from "../assets/image/Chili.png";
+import redChili from "../assets/image/Red Chili.png";
+import greenCucumber from "../assets/image/Green Cucumber.png";
+import ladiesFinger from "../assets/image/Ladies Finger.png";
+
 
 
 //Banner section//
@@ -99,6 +103,9 @@ export const PRODUCTS_IMAGE = {
     cauliflower,
     capsicum,
     chili,
+    redChili,
+    greenCucumber,
+    ladiesFinger, 
 };
 
 export const BANNER_IMAGE = {

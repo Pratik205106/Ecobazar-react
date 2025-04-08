@@ -34,7 +34,7 @@ const Banner = () => {
               )}
 
               {banner.price && (
-                <p className="text-[1.125rem] font-normal mt-3">
+                <p className="text-[1.125rem] font-normal mt-8">
                   Started at
                   <span className="ml-2 text-[#FF8A00] text-[1.25rem]">{banner.price}</span>
                 </p>

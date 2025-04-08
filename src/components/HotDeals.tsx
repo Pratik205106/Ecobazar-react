@@ -13,7 +13,7 @@ const HotDeals = () => {
 
   return (
     <>
-      <section className=" h-[73.1875rem] max-w-[82.4375rem] mx-auto">
+      <section className=" h-[73.1875rem]"> 
         <div className="h-[2.375rem] max-w-[82.4375rem]">
           <h1 className="font-semibold text-[#1A1A1A] text-[2rem] mt-4">
             Hot Deals
@@ -24,7 +24,7 @@ const HotDeals = () => {
             <img src={greenApple} alt="" />
   
           </div>
-          <div className="grid grid-cols-3 h-[20.4375rem] w-[16.5rem]">
+          <div className="grid grid-cols-3 h-[20.4375rem] ">
             {selectedProducts.map((Product, index) => (
               <Card
                 key={index}
@@ -36,7 +36,7 @@ const HotDeals = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-5 h-[20.4375rem] w-[16.5rem]">
+        <div className="grid grid-cols-5 h-[20.4375rem]  ">
           {dealProducts.map((Product, index) => (
             <Card
               key={index}

@@ -14,8 +14,9 @@ const Products = () => {
     image={value.image} 
      title={value.title}
      rate={value.rate}
+     fixRate={index === 0 ? value.fixRate : undefined} // Pass fixRate only for the first item
       star={value.star as number} 
-      
+ 
       /> 
   ))}
  

@@ -3,7 +3,7 @@ import { SocialMediaData } from "../utils/data";
 const Subscribe = () => {
   return (
     <>
-    <section className="h-[10.125rem] bg-[#E6E6E6] mt-[3.75rem]">
+    <section className="h-[10.125rem] bg-[#E6E6E6] mt-[3.75rem] max-w-full">
       <div className="ml-[12rem]">
         <div className="h-[5.125rem] w-[28rem] pt-[40px]">
           <h1 className="font-semibold text-[1.5rem] text-[#1A1A1A]">
