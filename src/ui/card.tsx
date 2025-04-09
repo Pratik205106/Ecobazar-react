@@ -14,7 +14,7 @@ interface Props{
 } 
 
 const Card = ({image,title,rate,star,badge, fixRate}:Props) => {
-  const newStar = star as number || 0
+  const newStar = star as number || 0;
 const renderStars = (rating: number)=> {
   const fullStars = Math.floor(Number(rating));
   const halfStars = Number(rating) % 1 !== 0 ? 1 : 0;
@@ -57,7 +57,7 @@ const renderStars = (rating: number)=> {
     height={327} 
     width={264} 
     className="object-cover rounded-lg" 
-    alt="" />
+    alt={title} />
 
 {/*floating Buttons*/}
     <div className=" hidden group-hover:flex absolute top-2 right-2 flex-col gap-2">
@@ -107,9 +107,9 @@ const renderStars = (rating: number)=> {
     </div>
 
     {/* Star Ratings */}
-  <div className="flex items-center">
-      {renderStars(newStar)}
-      </div> 
+    <div className="flex items-center gap-x-1 mt-1 ml-[0.1rem]">
+  {renderStars(newStar)}
+</div>
   </div>  
   
   </div>

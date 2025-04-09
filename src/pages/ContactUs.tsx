@@ -1,8 +1,12 @@
+import CheckoutForm from "../utils/Form"
+
 
 
 const ContactUs = () => {
   return (
-    <div>ContactUs</div>
+    <div>
+      <CheckoutForm/>
+    </div>
   )
 }
 

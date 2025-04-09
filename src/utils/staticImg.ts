@@ -27,6 +27,9 @@ import chili from "../assets/image/Chili.png";
 import redChili from "../assets/image/Red Chili.png";
 import greenCucumber from "../assets/image/Green Cucumber.png";
 import ladiesFinger from "../assets/image/Ladies Finger.png";
+import redTomatoes from "../assets/image/RedTomatos.png";
+import mangoes from "../assets/image/Mango.png";
+import redCapsicum from "../assets/image/RedCapsicum.png"
 
 
 
@@ -106,6 +109,9 @@ export const PRODUCTS_IMAGE = {
     redChili,
     greenCucumber,
     ladiesFinger, 
+    redTomatoes,
+    mangoes,
+    redCapsicum,
 };
 
 export const BANNER_IMAGE = {

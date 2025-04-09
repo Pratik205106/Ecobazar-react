@@ -82,6 +82,6 @@ export interface ProductType {
   rate: string;
   fixRate?:string;
   image: string;
-  star?: number | number;
+  star?: string | number;
   badge?: string;
 }

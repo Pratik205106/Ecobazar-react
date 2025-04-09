@@ -334,4 +334,22 @@ export const extraProducts: ProductType[] = [
     image: PRODUCTS_IMAGE.ladiesFinger,
     star: 4,
   },
+  {
+    title: "Red Tomato",
+    rate: "$14.99",
+    image: PRODUCTS_IMAGE.redTomatoes,
+    star: 4,
+  },
+  {
+    title: "Fresh Mango",
+    rate: "$14.99",
+    image: PRODUCTS_IMAGE.mangoes,
+    star: 4,
+  },
+  {
+    title: "Green Capsicum",
+    rate: "$14.99",
+    image: PRODUCTS_IMAGE.redCapsicum,
+    star: 4,
+  },
 ];
