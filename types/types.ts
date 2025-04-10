@@ -6,7 +6,7 @@ export interface NavItem{
   export interface CategoryData {
     title:string;
     image:string;
-    featured?: boolean
+    featured?: boolean;
   };
 
   export type CategoriesData = CategoryData[];
@@ -84,4 +84,19 @@ export interface ProductType {
   image: string;
   star?: string | number;
   badge?: string;
+};
+
+
+export interface BillingInfo{
+  firstName: string;
+  lastName: string;
+  companyName?: string;
+  streetAddress: string;
+  country: string;
+  state: string;
+  zipCode: string;
+  email: string;
+  phone: string;
+  orderNotes?: string;
+  shipToDifferentAddress?: boolean;
 }
