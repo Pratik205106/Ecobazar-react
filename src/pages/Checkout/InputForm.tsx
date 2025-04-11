@@ -4,6 +4,7 @@ import InputField from "./InputField";
 import SelectField from "./SelectField";
 import CheckBoxField from "./CheckBoxField"; // Import CheckBoxField
 
+
 const InputForm = () => {
   const {
     register,
@@ -219,7 +220,7 @@ const InputForm = () => {
                   register={register}
                   optional
                   placeholder="Add any special instructions or notes"
-                  className="h-[6.25rem] w-[54.5rem]"
+                  className="h-[6.25rem] w-[54.5rem] mb-[5rem]"
                 />
               </div>
             </div>
