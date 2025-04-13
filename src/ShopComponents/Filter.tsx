@@ -1,57 +1,47 @@
+import { useState } from "react";
 
+type Category = {
+  name: string;
+  count: number;
+  secondaryCount?: number;
+};
 
-const Filter = () => {
+const categories: Category[] = [
+  { name: "Fresh Fruit", count: 25, secondaryCount: 134 },
+  { name: "Vegetables", count: 150 },
+  { name: "Cooking", count: 54 },
+  { name: "Snacks", count: 47 },
+  { name: "Beverages", count: 43 },
+  { name: "Beauty & Health", count: 38 },
+  { name: "Bread & Bakery", count: 15 },
+];
+
+const CategoryFilter = () => {
+  const [selected, setSelected] = useState("Vegetables");
+
   return (
-    <section className="mt-10">
-    {/* Filter Controls */}
-    <div className="flex flex-wrap md:flex-nowrap items-center justify-between gap-6 mb-6 px-4">
-      <div className="flex flex-wrap gap-4">
-        <select className="border border-gray-400 rounded h-10 px-3 w-44">
-          <option value="">Select Category</option>
-        </select>
-        <select className="border border-gray-400 rounded h-10 px-3 w-44">
-          <option value="">Select Price</option>
-        </select>
-        <select className="border border-gray-400 rounded h-10 px-3 w-44">
-          <option value="">Select Rating</option>
-        </select>
-      </div>
-  
-      <div className="flex gap-4">
-        <select className="border border-gray-400 rounded h-10 px-3 w-44">
-          <option value="">Sort by: Latest</option>
-        </select>
-        <select className="border border-gray-400 rounded h-10 px-3 w-44">
-          <option value="">Show: 16</option>
-        </select>
-      </div>
+    <div className="space-y-4 mx-auto mt-8">
+      <h2 className="text-lg font-semibold">All Categories</h2>
+      {categories.map((category) => (
+        <label key={category.name} className="flex items-center cursor-pointer space-x-2">
+          <input
+            type="radio"
+            name="category"
+            value={category.name}
+            checked={selected === category.name}
+            onChange={() => setSelected(category.name)}
+            className="form-radio text-[#1A1A1A] focus:ring-green-700"
+          />
+          <span className="text-sm text-gray-800">
+            {category.name} <span className="text-gray-500">({category.count})</span>
+            {category.secondaryCount && (
+              <span className="text-gray-400 ml-1">({category.secondaryCount})</span>
+            )}
+          </span>
+        </label>
+      ))}
     </div>
-  
-    {/* Active Filters */}
-    <div className="w-full flex items-center justify-between px-4 py-3 border-y border-[#E5E5E5]">
-      {/* Left side: filters */}
-      <div className="flex items-center gap-4 flex-wrap">
-        <span className="text-[0.875rem] font-medium text-[#808080]">Active Filters:</span>
-        <span className="text-sm text-black flex items-center gap-1">
-          Wing Chair
-          <button className="hover:text-red-500 text-xl leading-none">×</button>
-        </span>
-        <span className="text-sm text-black flex items-center gap-1">
-          Min $300 - Max $500
-          <button className="hover:text-red-500 text-xl leading-none">×</button>
-        </span>
-      </div>
-  
-      {/* Right side: results */}
-      <div className="text-sm font-semibold text-gray-700 whitespace-nowrap flex items-center gap-1">
-  <strong>2,547</strong>
-  <span className="text-[#808080]">Results found.</span>
-</div>
+  );
+};
 
-    </div>
-  </section>
-  
-  )
-}
-
-export default Filter
+export default CategoryFilter;
