@@ -18,4 +18,4 @@ const CheckBoxField = ({
   )
 }
 
-export default CheckBoxField
+export default CheckBoxField;

@@ -31,7 +31,7 @@ const CategoryFilter = () => {
             checked={selected === category.name}
             onChange={() => setSelected(category.name)}
             className="form-radio text-[#1A1A1A] focus:ring-green-700"
-          />
+          /> 
           <span className="text-sm text-gray-800">
             {category.name} <span className="text-gray-500">({category.count})</span>
             {category.secondaryCount && (

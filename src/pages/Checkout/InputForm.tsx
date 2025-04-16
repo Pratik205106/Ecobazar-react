@@ -142,7 +142,7 @@ const InputForm = () => {
                   placeholder="Enter shipping last name"
                   className="h-[3.0625rem] w-[17.5rem]"
                 />
-                <InputField
+                <InputField   
                   label="Shipping Company Name"
                   name="shippingCompanyName"
                   register={register}
