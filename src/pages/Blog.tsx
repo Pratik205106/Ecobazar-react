@@ -1,8 +1,12 @@
+import ShoppingCart from "../ShoppingCrat/ShoppingCart"
+
 
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <section>
+<ShoppingCart/>
+    </section>
   )
 }
 

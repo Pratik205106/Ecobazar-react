@@ -40,7 +40,6 @@ export interface DiscountsData {
   note: string;
 }
 export type DiscountData = DiscountsData[];
-
 export interface LatestNewsData {
   title: string;
   image: string;
@@ -97,3 +96,13 @@ export interface BillingInfo {
   orderNotes?: string;
   shipToDifferentAddress?: boolean;
 }
+
+// Define the CartItem interface
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
+

@@ -11,7 +11,7 @@ import CompanyLogo from "../components/CompanyLogo";
 import InstaSec from "../components/InstaSec";
 import Subscribe from "../components/Subscribe";
 import HotDeals from "../components/HotDeals";
-import Footer from "../components/Footer";
+
 
 
 
@@ -35,7 +35,6 @@ const Home = () => {
 <CompanyLogo/>
 <InstaSec/>
 <Subscribe/>
-<Footer/>
     </>
   );
 };

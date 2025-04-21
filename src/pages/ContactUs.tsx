@@ -1,5 +1,5 @@
-import InputForm from "./Checkout/InputForm";
-import OrderSummery from "./Checkout/OrderSummery";
+import InputForm from "../Checkout/InputForm";
+import OrderSummery from "../Checkout/OrderSummery";
 import { extraProducts, PopularProduct } from "../utils/data"; // adjust path as needed
 
 const ContactUs = () => {

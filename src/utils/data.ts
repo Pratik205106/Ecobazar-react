@@ -101,7 +101,7 @@ export const categoryData: CategoriesData = [
 ];
 
 export const PopularProduct: PopularProducts = [
-  {
+  { 
     title: "Green Apple",
     image: PRODUCTS_IMAGE.greenApple,
     rate: "$14.99",
@@ -351,5 +351,22 @@ export const extraProducts: ProductType[] = [
     rate: "$14.99",
     image: PRODUCTS_IMAGE.redCapsicum,
     star: 4,
+  },
+];
+
+export const initialCart = [
+  {
+    id: 1,
+    name: "Green Capsicum",
+    price: 14.0,
+    quantity: 5,
+    image: PRODUCTS_IMAGE.capsicum,
+  },
+  {
+    id: 2,
+    name: "Red Capsicum",
+    price: 14.0,
+    quantity: 5,
+    image: PRODUCTS_IMAGE.redCapsicum,
   },
 ];

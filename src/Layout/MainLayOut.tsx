@@ -3,6 +3,7 @@ import phoneImg from "../assets/icon/phone.png";
 import { navItems } from "../utils/data";
 import TopBar from "../components/TopBar";
 import MainHead from "../components/MainHead";
+import Footer from "../components/Footer";
 
 const MainLayOut = () => {
   return (
@@ -33,9 +34,12 @@ const MainLayOut = () => {
       </nav>
       </section>
     </div>
+    
     <main>
         <Outlet />
       </main>
+      <Footer/>
+
       </>
   );
 };

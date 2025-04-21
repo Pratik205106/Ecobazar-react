@@ -64,6 +64,7 @@ import foodImg from "../assets/image/food.png";
 import bookOFFLogo from "../assets/image/bookoff-logo.png";
 import gSeries from "../assets/image/G-Series.png";
 
+
 //instaInfo section//
 import tomatoImg from "../assets/image/Tomatos.png";
 import instaLeaf from "../assets/image/instawaterleaf.png";
@@ -79,6 +80,7 @@ import twitterIcon from "../assets/icon/Twitter.png";
 import pinterestIcon from "../assets/icon/Pinterest.png";
 import instagramIcon from "../assets/icon/instagram.png";
 
+
 export const STATICS_IMAGE = {
     mixFruits,
     freshVeg,
@@ -93,6 +95,7 @@ export const STATICS_IMAGE = {
     dishDetergents,
     oil,
 };
+
 
 
 export const PRODUCTS_IMAGE = {
@@ -114,15 +117,22 @@ export const PRODUCTS_IMAGE = {
     redCapsicum,
 };
 
+
+
+
 export const BANNER_IMAGE = {
     saleOfMonth,
     lowFatMeat,
     freshFruits,
 };
 
+
+
 export const DISCOUNT_IMAGE ={
     mixVeg,
 };
+
+
 
 export const LATEST_IMAGE ={
     orangeSlice,
@@ -130,11 +140,15 @@ export const LATEST_IMAGE ={
 maecenas,
 };
 
+
+
 export const CLIENT_IMAGE ={
     robertFox,
     dianneRussell,
     eleanorPena,
-}
+};
+
+
 
 export const LOGO_IMAGE={
     stepsImg,
@@ -143,7 +157,10 @@ export const LOGO_IMAGE={
     foodImg,
 bookOFFLogo,
 gSeries,
-}
+};
+
+
+
 
 export const POST_IMAGE={
     tomatoImg,
@@ -153,6 +170,8 @@ export const POST_IMAGE={
     instaGreenLeaf,
     instaOrange,
 };
+
+
 
 
     

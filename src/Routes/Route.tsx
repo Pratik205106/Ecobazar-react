@@ -6,6 +6,7 @@ import Pages from "../pages/Pages";
 import Blog from "../pages/Blog";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
+import MainHead from "../components/MainHead";
 
 
 
@@ -37,6 +38,10 @@ export const route = createBrowserRouter([
       {
         path: '/contact',
         element: <ContactUs/>
+      },
+      {
+        path: '/cart',
+        element:<MainHead/>
       }
     ]
   }

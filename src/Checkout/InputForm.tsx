@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { BillingInfo } from "../../../types/types";
+import { BillingInfo } from "../../types/types";
 import InputField from "./InputField";
 import SelectField from "./SelectField";
 import CheckBoxField from "./CheckBoxField"; // Import CheckBoxField

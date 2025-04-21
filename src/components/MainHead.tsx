@@ -1,7 +1,9 @@
 import logoImage from "../assets/image/Leaf.png";
 import { CiHeart } from "react-icons/ci";
-import { BsHandbag } from "react-icons/bs";
+
 import { IoSearch } from "react-icons/io5";
+import CartIcon from "./CartIcon";
+import { NavLink } from "react-router";
 
 const MainHead = () => {
   return (
@@ -30,8 +32,14 @@ const MainHead = () => {
        
         <div className="flex justify-end items-center gap-2">
           <CiHeart className="flex items-center gap-1 cursor-pointer text-4xl" />
-          <div className="hidden md:block border-l border-gray-400 h-6 mx-4"></div>
-          <BsHandbag className="text-4xl cursor-pointer" />
+          <div className="hidden md:block border-l border-gray-400 h-6 mx-4">
+          </div>
+          <NavLink to='/cart'>
+          <span>
+          <CartIcon/>
+        </span>
+          </NavLink>
+        
           <div>
             <h1 className="text-[0.8125rem] text-[#4D4D4D]">Shopping cart:</h1>
             <h1 className="font-bold text-[0.873rem]">$57.00</h1>

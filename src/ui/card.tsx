@@ -52,12 +52,14 @@ const renderStars = (rating: number)=> {
       )}
       
       {/*Image*/}
-    <img 
+   <div className=" ">
+   <img 
     src={image} 
     height={327} 
     width={264} 
     className="object-cover rounded-lg" 
     alt={title} />
+   </div>
 
 {/*floating Buttons*/}
     <div className=" hidden group-hover:flex absolute top-2 right-2 flex-col gap-2">
