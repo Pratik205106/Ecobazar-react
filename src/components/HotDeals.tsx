@@ -11,7 +11,7 @@ const HotDeals = () => {
 
   const dealProducts = [...PopularProduct.slice(5,11)];
 
-  return (
+  return ( 
     <>
       <section className=" h-[73.1875rem]"> 
         <div className="h-[2.375rem] max-w-[82.4375rem]">

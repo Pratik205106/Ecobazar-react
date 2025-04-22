@@ -1,6 +1,7 @@
 import Buttons from "../ui/Buttons";
 import { BannerData } from "../utils/data";
 
+
 const Banner = () => {
   return (
     <section className="h-[33.5rem] max-w-[82.5rem] mx-auto m-[3.75rem]">
@@ -26,7 +27,7 @@ const Banner = () => {
         {["DAYS", "HOURS", "MINS", "SECS"][i]}
       </small>
     </div>
-    {i < 3 && <span className="text-3xl mx-2 mb-8">:</span>} {/* Show colon except after last item */}
+    {i < 3 && <span className="text-3xl mx-2 mb-8">:</span>} 
   </div>
 ))}
 
