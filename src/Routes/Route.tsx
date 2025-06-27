@@ -6,15 +6,15 @@ import Pages from "../pages/Pages";
 import Blog from "../pages/Blog";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
-import MainHead from "../components/MainHead";
-
-
+import ShoppingCart from "../ShoppingCrat/ShoppingCart";
+import OrderSummary from "../Checkout/OrderSummery";
+import Checkout from "../pages/Checkout";
 
 export const route = createBrowserRouter([
   {
     path: '/',
-    element: <MainLayOut/>,
-    children: [
+    element: <MainLayOut/>,      
+    children: [                   
       {
         path: '/',
         element: <Home/>
@@ -41,8 +41,16 @@ export const route = createBrowserRouter([
       },
       {
         path: '/cart',
-        element:<MainHead/>
-      }
+        element:<ShoppingCart/>
+      },
+      {
+        path: '/order-summary',
+        element: <OrderSummary/>
+      },
+      {
+        path:'/checkout',
+        element:<Checkout/>
+      },
     ]
   }
 ])

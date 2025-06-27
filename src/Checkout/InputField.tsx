@@ -1,12 +1,56 @@
+// import { InputHTMLAttributes } from "react";
+// import { FieldError, UseFormRegister } from "react-hook-form";
+
+// interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+//   label: string;
+//   name: string;
+//   register: UseFormRegister<any>;
+//   error?: FieldError;
+//   optional?: boolean;
+//   className?: string;
+// }
+
+// const InputField = ({
+//   label,
+//   name,
+//   register,
+//   error,
+//   optional = false,
+//   className = "",
+//   ...rest
+// }: InputFieldProps) => {
+//   const inputId = rest.id || name;
+
+//   return (
+//     <div className="mb-4 w-full">
+//       <label htmlFor={inputId} className="block text-sm font-medium text-gray-700">
+//         {label} {optional && <span className="text-gray-400">(optional)</span>}
+//       </label>
+//       <input
+//         id={inputId}
+//         {...register(name, {
+//           required: optional ? false : `${label} is required`,
+//         })}
+//         {...rest}
+//         className={`border border-[#E6E6E6] rounded-md mt-1 px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500 ${className}`}
+//       />
+//       {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
+//     </div>
+//   );
+// };
+
+// export default InputField;
 import { InputHTMLAttributes } from "react";
 import { FieldError, UseFormRegister } from "react-hook-form";
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
   register: UseFormRegister<any>;
   error?: FieldError;
   optional?: boolean;
+  className?: string;
+  requiredMessage?: string; // ✅ used for validation
 }
 
 const InputField = ({
@@ -14,24 +58,26 @@ const InputField = ({
   name,
   register,
   error,
-  optional,
-  className,
+  optional = false,
+  className = "",
+  requiredMessage,
   ...rest
-}: Props) => {
+}: InputFieldProps) => {
+  const inputId = rest.id || name;
+
   return (
-    <section>
-      <div className="mb-4 w-full">
-        <label className="block text-sm font-medium text-gray-700">
-          {label} {optional && <span className="text-gray-400">(optional)</span>}
-        </label>
-        <input
-          {...register(name)}
-          {...rest}
-          className={`border border-[#E6E6E6] rounded-md mt-1 px-3 focus:outline-none focus:ring-green-500 focus:border-green-500 ${className}`}
-        />
-        {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
-      </div>
-    </section>
+    <div className="mb-4 w-full">
+      <label htmlFor={inputId} className="block text-sm font-medium text-gray-700">
+        {label} {optional && <span className="text-gray-400">(optional)</span>}
+      </label>
+      <input
+        id={inputId}
+        {...register(name, optional ? {} : { required: requiredMessage || `${label} is required` })}
+        {...rest}
+        className={`border border-[#E6E6E6] rounded-md mt-1 px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500 ${className}`}
+      />
+      {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
+    </div>
   );
 };
 

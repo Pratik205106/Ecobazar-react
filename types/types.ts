@@ -1,11 +1,11 @@
 export interface NavItem {
-  id: number; // Added id for navigation items
+  id: number;
   name: string;
   path: string;
 }
 
 export interface CategoryData {
-  id: number; // Added id for category items
+  id: number;
   title: string;
   image: string;
   featured?: boolean;
@@ -13,19 +13,48 @@ export interface CategoryData {
 
 export type CategoriesData = CategoryData[];
 
-export interface PopularProduct {
-  id: number; // Added id for popular products
-  title: string;
+// export interface ProductType {
+//   id: number;
+//   title: string;
+//   name: string;
+//   image: string;
+//   rate: string;
+//   fixRate?: string;
+//   star?: number;
+//   badge?: string;
+//   price: number;
+//   quantity: number;
+//   images?: string[];
+// }
+export interface ProductType {
+  id: number;
+  name: string;
   image: string;
+  images?: string[];
+  title:string;
+  price: number;
   rate: string;
   fixRate?: string;
-  star?: number;
+  star?: number | string;
+  reviewCount?: number;
+  sku?: string;
+  brandLogo?: string;
+  BrandName: string;
+  description?: string;
+  category?: string;
+  tags?: string[];
+}
+
+
+// ✅ Now extends ProductType so it includes price, quantity, etc.
+export interface PopularProduct extends ProductType {
+  // Add extra fields if needed, or keep it empty if none
 }
 
 export type PopularProducts = PopularProduct[];
 
 export interface BannerData {
-  id: number; // Added id for banners
+  id: number;
   title: string;
   subtitle?: string;
   countDown?: boolean;
@@ -38,7 +67,7 @@ export interface BannerData {
 export type BannersData = BannerData[];
 
 export interface DiscountsData {
-  id: number; // Added id for discounts
+  id: number;
   title: string;
   image: string;
   discount?: string;
@@ -48,7 +77,7 @@ export interface DiscountsData {
 export type DiscountData = DiscountsData[];
 
 export interface LatestNewsData {
-  id: number; // Added id for latest news
+  id: number;
   title: string;
   image: string;
   date: {
@@ -62,7 +91,7 @@ export interface LatestNewsData {
 export type LatestNews = LatestNewsData[];
 
 export interface ClientInfoData {
-  id: number; // Added id for client info
+  id: number;
   title: string;
   image: string;
   clientName: string;
@@ -71,35 +100,39 @@ export interface ClientInfoData {
 export type ClientInfo = ClientInfoData[];
 
 export interface companyLogo {
-  id: number; // Added id for company logo
+  id: number;
   image: string;
 }
 
 export type companyLogoImg = companyLogo[];
 
 export interface InstaPostData {
-  id: number; // Added id for Insta post data
+  id: number;
   image: string;
 }
 
 export type InstaPost = InstaPostData[];
 
 export interface SocialMedia {
-  id: number; // Added id for social media items
+  id: number;
   image: string;
 }
 
 export type SocialMediaData = SocialMedia[];
 
-export interface ProductType {
-  id: number; // Added id for product type
-  title: string;
+
+
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
   image: string;
-  rate: string;
-  fixRate?: string;
   star?: number;
-  badge?: string; // ✅ Optional
-}
+} 
+
+
+
 
 export interface BillingInfo {
   firstName: string;
@@ -110,15 +143,34 @@ export interface BillingInfo {
   state: string;
   zipCode: string;
   email: string;
-  phone: string;
+  phoneNumber: string;
   orderNotes?: string;
   shipToDifferentAddress?: boolean;
+
+  // Shipping fields (optional)
+  shippingFirstName?: string;
+  shippingLastName?: string;
+  shippingCompanyName?: string;
+  shippingStreetAddress?: string;
+  shippingCountry?: string;
+  shippingState?: string;
+  shippingZipCode?: string;
+  shippingEmail?: string;
+  shippingPhone?: string;
 }
 
-export interface CartItem {
-  id: number; // Added id for cart items
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
+
+
+export interface CartTotalDisplayProps {
+  subtotal: number;
+  shippingCost: number;
+  couponDiscount: number;
+  total: number;
+  cartItems: CartItem[];
+  // onProceedToCheckout: () => void; // <-- Add this line
 }
+
+
+
+
+

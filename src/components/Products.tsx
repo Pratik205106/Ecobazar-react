@@ -1,21 +1,51 @@
+// import Card from "../ui/card";
+// import { PopularProduct } from "../utils/data";
+
+
+// const Products = () => {
+//   return (
+//     <>
+//       <section className="max-w-[82.5rem] mx-auto mt-[3.75rem] px-4">
+//   <h1 className="text-[2.375rem] font-semibold mb-[2rem]">Popular Product</h1>
+//   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-0 mx-[-1rem]">
+//     {PopularProduct.map((value) => (
+//       <Card
+//         key={value.id}
+//         id={value.id}
+//         image={value.image}
+//         title={value.title}
+//         rate={value.rate}
+//         fixRate={value.fixRate}
+//         price={value.price}
+//         star={value.star as number}
+//       />
+//     ))}
+//   </div>
+// </section>
+
+//     </>
+//   );
+// };
+
+// export default Products;
 import Card from "../ui/card";
 import { PopularProduct } from "../utils/data";
-
 
 const Products = () => {
   return (
     <>
-      <section className="h-[44.625rem] max-w-[82.5rem] mx-auto mt-[3.75rem]">
+      <section className="max-w-[82.5rem] mx-auto mt-[3.75rem] px-4">
         <h1 className="text-[2.375rem] font-semibold mb-[2rem]">Popular Product</h1>
-        <div className="grid grid-cols-5 mx-[0.3125rem]">
-          {PopularProduct.map((value) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-0 mx-[-1rem]">
+          {PopularProduct.slice(0, 10).map((value) => (
             <Card
-              key={value.id} // Use the product id as the key
-              id={value.id}  // Pass id to the Card component
+              key={value.id}
+              id={value.id}
               image={value.image}
               title={value.title}
               rate={value.rate}
-              fixRate={value.fixRate} // Pass fixRate if available
+              fixRate={value.fixRate}
+              price={value.price}
               star={value.star as number}
             />
           ))}

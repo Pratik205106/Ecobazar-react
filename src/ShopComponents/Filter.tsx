@@ -40,6 +40,7 @@ const CategoryFilter = () => {
           </span>
         </label>
       ))}
+      <hr className="font-sans p-4 border-gray-200 "/>
     </div>
   );
 };

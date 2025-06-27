@@ -2,10 +2,11 @@
 
 
 
+
 const Blog = () => {
   return (
     <section>
-
+Blog
     </section>
   )
 }

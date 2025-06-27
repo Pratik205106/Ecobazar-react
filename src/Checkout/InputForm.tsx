@@ -1,232 +1,150 @@
-import { useForm } from "react-hook-form";
-import { BillingInfo } from "../../types/types";
+import { useState, useCallback } from "react";
 import InputField from "./InputField";
 import SelectField from "./SelectField";
-import CheckBoxField from "./CheckBoxField"; // Import CheckBoxField
+import ShippingForm from "./ShippingForm";
+import { BillingInfo } from "../../types/types";
+import { UseFormRegister, FieldErrors } from "react-hook-form";
 
+const countryOptions: BillingInfo["country"][] = ["Nepal", "India", "China", "USA"];
+const stateOptions: BillingInfo["state"][] = ["Lumbini", "Maharashtra", "Beijing", "New York"];
 
-const InputForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<BillingInfo>();
+type InputFormProps = {
+  register: UseFormRegister<BillingInfo>;
+  errors: FieldErrors<BillingInfo>;
+};
 
-  const onSubmit = (data: BillingInfo) => {
-    console.log("Bill submitted", data);
-  };
+const InputForm = ({ register, errors }: InputFormProps) => {
+  const [shipToDifferentAddress, setShipToDifferentAddress] = useState(false);
 
-  
-
-  // Track if "Ship to different address" checkbox is checked
-  const shipToDifferentAddress = watch("shipToDifferentAddress");
+  const toggleShippingAddress = useCallback(() => {
+    setShipToDifferentAddress((prev) => !prev);
+  }, []);
 
   return (
-    <section>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <main className="w-[54.5rem] h-[44.125rem] mt-4">
-          <div className="w-[54.5rem] h-[28.5625rem]">
-            <h1 className="text-[#1A1A1A] text-2xl font-medium">
-              Billing Information
-            </h1>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start mt-5">
-              <InputField
-                label="First Name"
-                name="firstName"
-                register={register}
-                error={errors.firstName}
-                placeholder="Enter your first name"
-                className="h-[3.0625rem] w-[17.5rem] mt-2"
-              />
-              <InputField
-                label="Last Name"
-                name="lastName"
-                register={register}
-                error={errors.lastName}
-                placeholder="Enter your last name"
-                className="h-[3.0625rem] w-[17.5rem] mt-2"
-              />
-              <InputField
-                label="Company Name"
-                name="companyName"
-                register={register}
-                optional
-                placeholder="Enter your company name (optional)"
-                className="h-[3.0625rem] w-[17.5rem] mt-2"
-              />
-            </div>
+    <section className="bg-white rounded-md shadow-md p-8 border border-gray-100">
+      <h2 className="text-xl font-semibold mb-6">Billing Details</h2>
 
-            <div className="flex mt-4">
-              <InputField
-                label="Street Address"
-                name="streetAddress"
-                register={register}
-                error={errors.streetAddress}
-                placeholder="Enter your street address"
-                className="h-[3.0625rem] w-[54.5rem] mt-2"
-              />
-            </div>
+      {/* First Name, Last Name, Company */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <InputField
+          label="First Name"
+          name="firstName"
+          register={register}
+          error={errors.firstName}
+          placeholder="Enter first name"
+          className="h-[3.0625rem] w-full"
+          id="firstName"
+        />
+        <InputField
+          label="Last Name"
+          name="lastName"
+          register={register}
+          error={errors.lastName}
+          placeholder="Enter last name"
+          className="h-[3.0625rem] w-full"
+          id="lastName"
+        />
+        <InputField
+          label="Company Name"
+          name="companyName"
+          register={register}
+          optional
+          placeholder="Optional"
+          className="h-[3.0625rem] w-full"
+          id="companyName"
+        />
+      </div>
 
-            <div className="flex gap-4">
-              <SelectField
-                label="Country / Region"
-                name="country"
-                register={register}
-                options={["Nepal", "India", "China", "USA"]}
-                error={errors.country}
-                className="h-[3.0625rem] w-[17.5rem] mt-2"
-              />
-              <SelectField
-                label="State"
-                name="state"
-                register={register}
-                options={["Lumbini", "Mumbai", "Beijing", "New York"]}
-                error={errors.state}
-                className="h-[3.0625rem] w-[17.5rem] mt-2"
-              />
-              <InputField
-                label="Zip Code"
-                name="zipCode"
-                register={register}
-                error={errors.zipCode}
-                placeholder="Enter your zip code"
-                className="h-[3.0625rem] w-[17.5rem] mt-2"
-              />
-            </div>
+      {/* Street Address */}
+      <div className="mt-6">
+        <InputField
+          label="Street Address"
+          name="streetAddress"
+          register={register}
+          error={errors.streetAddress}
+          placeholder="Enter address"
+          className="h-[3.0625rem] w-full"
+          id="streetAddress"
+        />
+      </div>
 
-            <div className="flex gap-4">
-              <InputField
-                label="Email"
-                name="email"
-                register={register}
-                error={errors.email}
-                placeholder="Enter your email"
-                className="h-[3.0625rem] w-[26.75rem] mt-2"
-              />
-              <InputField
-                label="Phone"
-                name="phone"
-                register={register}
-                error={errors.phone}
-                placeholder="Enter your phone number"
-                className="h-[3.0625rem] w-[26.75rem] mt-2"
-              />
-            </div>
-          </div>
+      {/* Country, State, Zip */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+        <SelectField
+          label="Country / Region"
+          name="country"
+          register={register}
+          options={countryOptions}
+          error={errors.country}
+          className="h-[3.0625rem] w-full"
+          id="country"
+        />
+        <SelectField
+          label="State"
+          name="state"
+          register={register}
+          options={stateOptions}
+          error={errors.state}
+          className="h-[3.0625rem] w-full"
+          id="state"
+        />
+        <InputField
+          label="Zip Code"
+          name="zipCode"
+          register={register}
+          error={errors.zipCode}
+          placeholder="Enter zip"
+          className="h-[3.0625rem] w-full"
+          id="zipCode"
+        />
+      </div>
 
-          <div className="h-[1.3125rem] w-[13.1875rem] mt-4">
-            <CheckBoxField
-              label="Ship to a different address"
-              {...register("shipToDifferentAddress")}
-            />
-          </div>
+      {/* Email, Phone */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+        <InputField
+          label="Email Address"
+          name="email"
+          register={register}
+          error={errors.email}
+          placeholder="Enter email"
+          className="h-[3.0625rem] w-full"
+          id="email"
+        />
+        <InputField
+          label="Phone Number"
+          name="phoneNumber"
+          register={register}
+          error={errors.phoneNumber}
+          placeholder="Enter phone number"
+          className="h-[3.0625rem] w-full"
+          id="phoneNumber"
+        />
+      </div>
 
-          {/* Conditionally render shipping address fields if checkbox is checked */}
-          {shipToDifferentAddress && (
-            <div className="mt-8">
-              <h2 className="text-xl font-medium">Shipping Address</h2>
+      {/* Ship to different address */}
+      <div className="mt-6">
+        <label htmlFor="shipDifferent" className="flex items-center gap-2 cursor-pointer">
+          <input
+            type="checkbox"
+            id="shipDifferent"
+            checked={shipToDifferentAddress}
+            onChange={toggleShippingAddress}
+            className="form-checkbox h-5 w-5 text-green-600"
+          />
+          <span className="text-sm text-gray-700">Ship to a different address</span>
+        </label>
+      </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start mt-5">
-                <InputField
-                  label="Shipping First Name"
-                  name="shippingFirstName"
-                  register={register}
-                  placeholder="Enter shipping first name"
-                  className="h-[3.0625rem] w-[17.5rem] mt-2"
-                />
-                <InputField
-                  label="Shipping Last Name"
-                  name="shippingLastName"
-                  register={register}
-                  placeholder="Enter shipping last name"
-                  className="h-[3.0625rem] w-[17.5rem]"
-                />
-                <InputField   
-                  label="Shipping Company Name"
-                  name="shippingCompanyName"
-                  register={register}
-                  optional
-                  placeholder="Enter shipping company name"
-                  className="h-[3.0625rem] w-[17.5rem]"
-                />
-              </div>
-
-              <div className="flex mt-4">
-                <InputField
-                  label="Shipping Street Address"
-                  name="shippingStreetAddress"
-                  register={register}
-                  placeholder="Enter shipping street address"
-                  className="h-[3.0625rem] w-[54.5rem]"
-                />
-              </div>
-
-              <div className="flex gap-4">
-                <SelectField
-                  label="Shipping Country / Region"
-                  name="shippingCountry"
-                  register={register}
-                  options={["Nepal", "India", "China", "USA"]}
-                  className="h-[3.0625rem] w-[17.5rem]"
-                />
-                <SelectField
-                  label="Shipping State"
-                  name="shippingState"
-                  register={register}
-                  options={["Lumbini", "Mumbai", "Beijing", "New York"]}
-                  className="h-[3.0625rem] w-[17.5rem]"
-                />
-                <InputField
-                  label="Shipping Zip Code"
-                  name="shippingZipCode"
-                  register={register}
-                  placeholder="Enter shipping zip code"
-                  className="h-[3.0625rem] w-[17.5rem]"
-                />
-              </div>
-
-              <div className="flex gap-4">
-                <InputField
-                  label="Shipping Email"
-                  name="shippingEmail"
-                  register={register}
-                  placeholder="Enter shipping email"
-                  className="h-[3.0625rem] w-[26.75rem]"
-                />
-                <InputField
-                  label="Shipping Phone"
-                  name="shippingPhone"
-                  register={register}
-                  placeholder="Enter shipping phone number"
-                  className="h-[3.0625rem] w-[26.75rem]"
-                />
-              </div>
-            </div>
-          )}
-
-          <hr className="border border-[#E6E6E6] mt-8" />
-
-          <div className="mt-8">
-            <h1 className="text-[#1A1A1A] text-6 font-medium">
-              Additional Info
-            </h1>
-
-            <div>
-              <div className="mt-5">
-                <InputField
-                  label="Order Notes"
-                  name="orderNotes"
-                  register={register}
-                  optional
-                  placeholder="Add any special instructions or notes"
-                  className="h-[6.25rem] w-[54.5rem] mb-[5rem]"
-                />
-              </div>
-            </div>
-          </div>
-        </main>
-      </form>
+      {/* Conditional Shipping Form */}
+      <div
+        className={`transition-all duration-300 ${
+          shipToDifferentAddress ? "mt-6 max-h-[1000px]" : "max-h-0 overflow-hidden"
+        }`}
+      >
+        {shipToDifferentAddress && (
+          <ShippingForm register={register} errors={errors} />
+        )}
+      </div>
     </section>
   );
 };

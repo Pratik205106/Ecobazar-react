@@ -1,5 +1,6 @@
 import React from "react";
 import { IoIosArrowRoundForward } from "react-icons/io"
+import { NavLink } from "react-router-dom";
 
 type ButtonsProps= {
   label?: string;
@@ -19,6 +20,7 @@ const Buttons = ({
   className= "",
 }: ButtonsProps) => {
   return (
+    <NavLink to="/shop">
   <button 
   onClick={onClick}
   className={`h-[3.1875rem] w-[11.9375rem] rounded-3xl font-semibold flex items-center justify-center space-x-2 absolute ${bgColor} ${textColor} ${className}`}
@@ -26,6 +28,7 @@ const Buttons = ({
 <span>{label}</span>
 {icon}
   </button>
+  </NavLink>
   )
 }
 

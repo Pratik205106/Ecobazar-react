@@ -29,9 +29,9 @@ import greenCucumber from "../assets/image/Green Cucumber.png";
 import ladiesFinger from "../assets/image/Ladies Finger.png";
 import redTomatoes from "../assets/image/RedTomatos.png";
 import mangoes from "../assets/image/Mango.png";
-import redCapsicum from "../assets/image/RedCapsicum.png"
-
-
+import redCapsicum from "../assets/image/RedCapsicum.png";
+import brandLogo from "../assets/image/Leaf.logo.png";
+import farmery from "../assets/image/farmary.png";
 
 //Banner section//
 import saleOfMonth from "../assets/image/SaleOfMonth.png";
@@ -115,6 +115,8 @@ export const PRODUCTS_IMAGE = {
     redTomatoes,
     mangoes,
     redCapsicum,
+    brandLogo,
+    farmery,
 };
 
 

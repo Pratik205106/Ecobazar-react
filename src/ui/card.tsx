@@ -1,43 +1,48 @@
 import { BsHandbag } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
-import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { RiEyeLine } from "react-icons/ri";
+import Stars from "../ui/Stars"; //  import your reusable Stars component
+import { useCartStore } from "../store/useCartStore";
+import { useCartUIStore } from "../store/cartUIStore";
 
 interface Props {
-  id: number; // Added id
+  id: number;
   image: string;
   title: string;
+  price: number;
   star?: number;
   rate: string;
   fixRate?: string;
   badge?: string;
+  onView?: () => void;
 }
 
-const Card = ({ id, image, title, rate, star, badge, fixRate }: Props) => {
-  const newStar = star as number || 0;
-  const renderStars = (rating: number) => {
-    const fullStars = Math.floor(Number(rating));
-    const halfStars = Number(rating) % 1 !== 0 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStars;
+const Card = ({
+  id,
+  image,
+  title,
+  price,
+  rate,
+  star,
+  badge,
+  fixRate,
+  onView,
+}: Props) => {
+  const newStar = typeof star === "number" ? star : 0;
+  const addToCart = useCartStore((state) => state.addToCart);
+  const openCart = useCartUIStore((state) => state.openCart);
 
-    return (
-      <>
-        {/* Full stars */}
-        {[...Array(fullStars)].map((_, index) => (
-          <FaStar key={`full-${index}`} className="text-[#FF8A00]" />
-        ))}
+  const handleAddToCart = () => {
+    if (badge === "Out of stock") return;
 
-        {/* Half stars */}
-        {[...Array(halfStars)].map((_, index) => (
-          <FaStarHalfAlt key={`half-${index}`} className="text-[#FF8A00]" />
-        ))}
-
-        {/* Empty stars */}
-        {[...Array(emptyStars)].map((_, index) => (
-          <FaRegStar key={`empty-${index}`} className="text-[#FF8A00]" />
-        ))}
-      </>
-    );
+    addToCart({
+      id,
+      image,
+      name: title,
+      price,
+      star: newStar,
+    });
+    openCart();
   };
 
   return (
@@ -45,13 +50,12 @@ const Card = ({ id, image, title, rate, star, badge, fixRate }: Props) => {
       {badge && (
         <span
           className={`absolute top-2 left-2 z-10 px-2 py-1 text-xs font-bold rounded 
-          ${badge === "Out of stock" ? "bg-[#1A1A1A]" : "bg-[#EA4B48]"} text-white`}
+            ${badge === "Out of stock" ? "bg-[#1A1A1A]" : "bg-[#EA4B48]"} text-white`}
         >
           {badge}
         </span>
       )}
 
-      {/* Image */}
       <div>
         <img
           src={image}
@@ -62,31 +66,28 @@ const Card = ({ id, image, title, rate, star, badge, fixRate }: Props) => {
         />
       </div>
 
-      {/* Floating Buttons */}
       <div className="hidden group-hover:flex absolute top-2 right-2 flex-col gap-2">
         <button
           className="h-10 w-10 bg-[#F2F2F2] rounded-full flex justify-center items-center"
-          onClick={() => console.log(`Linked product with id: ${id}`)}
+          onClick={() => console.log(`Liked product with id: ${id}`)}
         >
           <CiHeart />
         </button>
       </div>
 
-      {/* Quick view Button */}
-      <div className="hidden group-hover:block items-center ml-[200px] absolute top-16 right-2 flex-col">
+      <div className="hidden group-hover:block absolute top-16 right-2">
         <button
           className="h-10 w-10 bg-[#F2F2F2] rounded-full flex justify-center items-center"
-          onClick={() => console.log(`Quick view for product with id: ${id}`)}
+          onClick={onView}
+          aria-label="Quick view"
         >
           <RiEyeLine />
         </button>
       </div>
 
-      {/* Product Info */}
-      <div className="mt-2 text-lg ml-[0.75rem]">
+      <div className="mt-2 text-lg ml-3">
         <p className="text-[#4D4D4D] hover:text-[#2C742F] font-medium">{title}</p>
 
-        {/* Display both rate and fixRate if fixRate exists */}
         <div className="flex items-center gap-2">
           <p className="text-[1rem] text-[#1A1A1A]">{rate}</p>
           {fixRate && (
@@ -94,20 +95,23 @@ const Card = ({ id, image, title, rate, star, badge, fixRate }: Props) => {
           )}
         </div>
 
-        {/* Add to Cart Button */}
-        <div className="flex items-center ml-[200px] absolute top-60 right-2 flex-col">
+        <div className="absolute bottom-4 right-4">
           <button
-            className="h-10 w-10 bg-[#F2F2F2] rounded-full flex justify-center items-center text-[#1A1A1A] hover:text-white hover:bg-[#00B207]"
-            onClick={() => console.log(`Added to cart: product id ${id}`)}
+            className={`h-10 w-10 rounded-full flex justify-center items-center transition 
+              ${
+                badge === "Out of stock"
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-[#F2F2F2] text-[#1A1A1A] hover:bg-[#00B207] hover:text-white"
+              }`}
+            onClick={handleAddToCart}
+            aria-label="Add to cart"
+            disabled={badge === "Out of stock"}
           >
             <BsHandbag />
           </button>
         </div>
 
-        {/* Star Ratings */}
-        <div className="flex items-center gap-x-1 mt-1 ml-[0.1rem]">
-          {renderStars(newStar)}
-        </div>
+        <Stars rating={newStar} className="mt-1 ml-[0.1rem]" />
       </div>
     </div>
   );
