@@ -4,14 +4,14 @@ import {
   FaStar,
   FaStarHalfAlt,
   FaRegStar,
-  FaFacebookF,
-  FaTwitter,
-  FaPinterestP,
-  FaInstagram,
   FaRegHeart,
+  FaChevronUp,
+  FaChevronDown,
 } from "react-icons/fa";
 import { ProductType } from "../../types/types";
 import { BsHandbag } from "react-icons/bs";
+import SocialIcons from "./SocialIcons";
+import QuantitySelector from "./QuantitySelector";
 
 interface ProductModalProps {
   product: ProductType;
@@ -64,10 +64,11 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
         </button>
 
         {/* Image Section */}
-        {/* <div className="h-[501px] w-[568px] mx-auto flex"> */}
         <div className="flex flex-col md:flex-row gap-4 w-full md:w-1/2">
           <div className="flex flex-col items-center gap-2">
-            <button onClick={() => scrollThumbnails("up")} className="text-gray-500 hover:text-black">▲</button>
+            <button onClick={() => scrollThumbnails("up")} className="text-[#999999] hover:text-black">
+              <FaChevronUp/>
+            </button>
             <div ref={thumbnailRef} className="flex flex-col gap-2 overflow-y-auto max-h-[300px] pr-1 custom-scrollbar">
               {imageList.map((img, index) => (
                 <img
@@ -81,7 +82,9 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
                 />
               ))}
             </div>
-            <button onClick={() => scrollThumbnails("down")} className="text-gray-500 hover:text-black">▼</button>
+            <button onClick={() => scrollThumbnails("down")} className="text-[#999999] hover:text-black">
+              <FaChevronDown/>
+            </button>
           </div>
           <div className="flex-1">
             <img src={imageList[selectedIndex]} alt={`product-${selectedIndex}`} className="w-full rounded-md object-contain" />
@@ -131,12 +134,12 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
   <div className="flex flex-col items-center gap-1 h-[56px] w-[56px] border border-[#E6E6E6] rounded-md p-1">
   <img
     src={product.brandLogo ?? "/brand-logo.png"}
-    alt="brand"
+    alt="brand logo"
     className="w-[32px] h-8 object-contain "
   />
    <img
     src={product.BrandName ?? "/brand-name.png"}
-    alt="brand"
+    alt="brand name"
     className="w-[40px] h-12 object-contain"
   />
 </div>
@@ -146,32 +149,10 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
   {/* Social Share Section */}
  <div className="flex items-center gap-3 text-sm">
   <span className="font-semibold text-[#1A1A1A]">Share item:</span>
-  <div className="flex gap-3">
-    {/* Facebook */}
-    <div className="h-[40px] w-[40px] flex items-center justify-center rounded-full bg-green-600 hover:opacity-90 cursor-pointer transition">
-      <FaFacebookF className="text-white text-[16px]" />
-    </div>
-
-    {/* Twitter */}
-    <div className="h-[40px] w-[40px] flex items-center justify-center">
-      <FaTwitter className="text-[#4D4D4D] text-[16px]" />
-    </div>
-
-    {/* Pinterest */}
-    <div className="h-[40px] w-[40px] flex items-center justify-center">
-      <FaPinterestP className="text-[#4D4D4D] text-[16px]" />
-    </div>
-
-    {/* Instagram */}
-    <div className="h-[40px] w-[40px] flex items-center justify-center">
-      <FaInstagram className="text-[#4D4D4D] text-[16px]" />
-    </div>
-  </div>
+  <SocialIcons/>
 </div>
 </div>
 </div>
-
-
           <p className="text-[#808080] text-sm max-w-[540px]">
             {product.description ?? ""}
                <hr className="border-[#E6E6E6] h-[2px] w-[568px] mt-6"/>
@@ -179,23 +160,12 @@ const ProductModal = ({ product, onClose }: ProductModalProps) => {
           {/* Quantity & Cart */}
           <div className="flex items-center gap-4">
             <div className="h-[88px] flex items-center">
-            <div className="flex items-center border border-[#E6E6E6] rounded-3xl w-[124px] h-[50px]">
-              <button
-                className="h-[34px] w-[34px] text-xl bg-[#F2F2F2] rounded-full"
-                onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-              >
-                -
-              </button>
-              <span className="w-[40px] text-center">{quantity}</span>
-              <button
-                className="h-[34px] w-[34px] text-xl bg-[#F2F2F2] rounded-full"
-                onClick={() => setQuantity((prev) => prev + 1)}
-              >
-                +
-              </button>
+         <QuantitySelector
+              quantity={quantity}
+              onIncrease={() => setQuantity((prev) => prev + 1)}
+              onDecrease={() => setQuantity((prev) => Math.max(1, prev - 1))}
+            />
             </div>
-            </div>
-
             <button
               className="bg-[#00B207] hover:bg-green-700 text-white px-6 py-3 h-[51px] w-[368px] rounded-3xl flex items-center gap-2"
               onClick={handleAddToCart}

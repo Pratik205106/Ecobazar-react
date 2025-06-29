@@ -60,7 +60,7 @@ export const categoryData: CategoriesData = [
       star: 4.5,
       price: 14.99,
       brandLogo: PRODUCTS_IMAGE.brandLogo,
-      BrandName:PRODUCTS_IMAGE.farmery,
+      BrandName :PRODUCTS_IMAGE.farmery,
     description: "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum. Nulla varius magna a consequat pulvinar. ",
     },
     {
