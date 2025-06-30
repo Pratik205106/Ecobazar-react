@@ -2,7 +2,7 @@ import { BsHandbag } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { RiEyeLine } from "react-icons/ri";
 import Stars from "../ui/Stars"; //  import your reusable Stars component
-import { useCartStore } from "../store/useCartStore";
+import { useCartStore } from "../store/useCartStore"; 
 import { useCartUIStore } from "../store/cartUIStore";
 
 interface Props {
@@ -118,3 +118,4 @@ const Card = ({
 };
 
 export default Card;
+
