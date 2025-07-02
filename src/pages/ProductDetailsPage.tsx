@@ -13,6 +13,7 @@ const ProductDetailsPage = () => {
 
   return (
     <div>
+      
       {/* Render modal only if showModal is true */}
       {showModal && (
         <ProductModal

@@ -1,11 +1,13 @@
 const AdditionalInfo = () => {
   return (
-    <div className="text-gray-700 text-sm space-y-4 leading-relaxed">
-      <p><strong>Category:</strong> Organic Vegetables</p>
-      <p><strong>Packaging:</strong> Biodegradable eco-friendly bags</p>
-      <p><strong>Weight:</strong> Approx. 500g – 1kg per unit</p>
-      <p><strong>Storage:</strong> Store in a refrigerator. Best consumed within 5 days.</p>
-      <p><strong>Origin:</strong> Locally grown in organic-certified farms in Nepal</p>
+    <div className="text-[#666666] text-sm space-y-4 leading-relaxed">
+      <p><strong className="text-[#1A1A1A] text-[14px]">Packaging:</strong> Biodegradable eco-friendly bags</p>
+      <p><strong className="text-[#1A1A1A] text-[14px]">Weight:</strong> Approx. 500g – 1kg per unit</p>
+      <p><strong className="text-[#1A1A1A] text-[14px]">Color:</strong>Green</p>
+      <p><strong className="text-[#1A1A1A] text-[14px]">Type:</strong>Organic</p>
+      <p><strong className="text-[#1A1A1A] text-[14px]">Stock Status:</strong>Organic</p>
+      <p><strong className="text-[#1A1A1A] text-[14px]">Category:</strong>Available</p>
+      <p><strong className="text-[#1A1A1A] text-[14px]">Tags:</strong> Vegetables, Healthy, Chinese, Cabbage, Green Cabbage, </p>
     </div>
   );
 };
