@@ -1,37 +1,37 @@
-import { useState } from "react";
+import { useParams } from "react-router-dom";
 import Tabs from "../ui/Tabs";
 import ProductDescription from "../products/ProductDescription";
 import AdditionalInfo from "../products/AdditionalInfo";
 import CustomerFeedback from "../products/CustomerFeedback";
-import ProductModal from "../ShopComponents/ProductModal";
-import { PopularProduct } from "../utils/data"; // adjust if path differs
+import { PopularProduct } from "../utils/data";
 import { ProductType } from "../../types/types";
 
 const ProductDetailsPage = () => {
-  const [showModal, setShowModal] = useState(true); // default to open for testing
-  const sampleProduct: ProductType = PopularProduct[0]; // choose a real product
+  const { id } = useParams();
+  const numericId = Number(id);
+
+  if (isNaN(numericId)) {
+    return <div className="p-10 text-red-600">Invalid product ID.</div>;
+  }
+
+  const sampleProduct: ProductType | undefined = PopularProduct.find(
+    (item) => item.id === numericId
+  );
+
+  if (!sampleProduct) {
+    return <div className="p-10 text-red-600">Product not found.</div>;
+  }
 
   return (
-    <div>
-      
-      {/* Render modal only if showModal is true */}
-      {showModal && (
-        <ProductModal
-          product={sampleProduct}
-          onClose={() => setShowModal(false)}
-        />
-      )}
-
-      <div className="p-4 md:p-10">
-        <Tabs
-          tabs={["Descriptions", "Additional Information", "Customer Feedback"]}
-          contents={[
-            <ProductDescription key="desc" />,
-            <AdditionalInfo key="info" />,
-            <CustomerFeedback key="feedback" />,
-          ]}
-        />
-      </div>
+    <div className="w-full md:p-10 max-w-4xl mx-auto">
+      <Tabs
+        tabs={["Descriptions", "Additional Information", "Customer Feedback"]}
+        contents={[
+          <ProductDescription key="desc" />,
+          <AdditionalInfo key="info" />,
+          <CustomerFeedback key="feedback" />,
+        ]}
+      />
     </div>
   );
 };

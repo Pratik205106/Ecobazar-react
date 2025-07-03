@@ -9,6 +9,7 @@ import ContactUs from "../pages/ContactUs";
 import ShoppingCart from "../ShoppingCrat/ShoppingCart";
 import OrderSummary from "../Checkout/OrderSummery";
 import Checkout from "../pages/Checkout";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 
 export const route = createBrowserRouter([
   {
@@ -51,6 +52,7 @@ export const route = createBrowserRouter([
         path:'/checkout',
         element:<Checkout/>
       },
+        { path: '/product/:id', element: <ProductDetailsPage /> },
     ]
   }
 ])
