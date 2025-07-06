@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import bannerImg from "../assets/image/mixVeg.jpg";
 import Buttons from "../ui/Buttons";
 import { BannerData } from "../utils/data";
@@ -6,34 +5,13 @@ import { BannerData } from "../utils/data";
 const ShopDiscountBanner = () => {
   const banner = BannerData[0];
 
-  const [currentTime, setCurrentTime] = useState({
-    day: "00",
-    hours: "00",
-    minutes: "00",
-    seconds: "00",
-  });
-
-  useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
-      const day = now.toLocaleDateString("en-US", { weekday: "short" }); // e.g. Mon, Tue
-      const hours = String(now.getHours()).padStart(2, "0");
-      const minutes = String(now.getMinutes()).padStart(2, "0");
-      const seconds = String(now.getSeconds()).padStart(2, "0");
-
-      setCurrentTime({
-        day: day.toUpperCase(),
-        hours,
-        minutes,
-        seconds,
-      });
-    };
-
-    updateClock(); // initial call
-    const interval = setInterval(updateClock, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  // Static fake countdown
+  const currentTime = {
+    day: "07",
+    hours: "12",
+    minutes: "34",
+    seconds: "56",
+  };
 
   return (
     <section className="mt-[1.5rem]">

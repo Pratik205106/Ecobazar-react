@@ -1,3 +1,6 @@
+import InputField from "../ui/InputField";
+import TextAreaField from "../ui/TextAreaField";
+
 const ContactForm = () => {
   return (
     <div className="w-[984px] h-[507px] flex-1 bg-white shadow-md rounded-xl p-6">
@@ -5,34 +8,34 @@ const ContactForm = () => {
         Just Say Hello!
       </h1>
       <p className="text-sm text-[#808080] mb-6 w-[486px]">
-        Do you fancy saying hi to me or want to get started with your project
-        and you need my help? Feel free to contact me.
+        Do you fancy saying hi to me or want to get started with your <br />
+        project and you need my help? Feel free to contact me.
       </p>
 
       <form className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <input
+        <div className="flex gap-4">
+          <InputField
             type="text"
             placeholder="Template Cookie"
-            className="h-12 w-[434px] px-4 border border-[#E5E5E5] rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00B207]"
+            width="w-[434px]"
           />
-          <input
+          <InputField
             type="email"
             placeholder="zakirsoft@gmail.com"
-            className="h-12 w-[434px] px-4 border border-[#E5E5E5] rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00B207]"
+            width="w-[434px]"
           />
         </div>
 
-        <input
+        <InputField
           type="text"
-          placeholder="Hello"
-          className="h-12 w-[884px] px-4 border border-[#E5E5E5] rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#00B207]"
+          placeholder="Text area"
+          width="w-[884px]"
         />
 
-        <textarea
+        <TextAreaField
           placeholder="Subjects"
-          className="w-full h-28 px-4 py-2 border border-[#E5E5E5] rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[#00B207]"
-        ></textarea>
+          height="h-28"
+        />
 
         <button
           type="submit"

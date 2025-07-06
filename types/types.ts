@@ -43,6 +43,7 @@ export interface ProductType {
   description?: string;
   category?: string;
   tags?: string[];
+   quantity?: number;
 }
 
 
