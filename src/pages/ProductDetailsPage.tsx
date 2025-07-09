@@ -7,10 +7,13 @@ import ProductModal from "../ShopComponents/ProductModal";
 import { PopularProduct } from "../utils/data";
 import { ProductType } from "../../types/types";
 import ShopProducts from "../ShopComponents/ShopProducts";
+import { useState } from "react";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const numericId = Number(id);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
   if (isNaN(numericId)) {
     return <div className="p-10 text-red-600">Invalid product ID.</div>;
@@ -23,6 +26,11 @@ const ProductDetailsPage = () => {
   if (!sampleProduct) {
     return <div className="p-10 text-red-600">Product not found.</div>;
   }
+
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const endIdx = startIdx + itemsPerPage;
+  const paginatedProducts = PopularProduct.slice(startIdx, endIdx);
+  const totalPages = Math.ceil(PopularProduct.length / itemsPerPage);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-6 py-12 space-y-14">
@@ -64,8 +72,28 @@ const ProductDetailsPage = () => {
           </div>
         </div>
       </div>
-      <div>
-        <ShopProducts/>
+
+      {/* 🔽 Related Products with Pagination */}
+      <div className="space-y-6">
+ <ShopProducts products={paginatedProducts} gridColsClass="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" />
+
+
+        <div className="flex justify-center gap-4">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+            disabled={currentPage === 1}
+            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

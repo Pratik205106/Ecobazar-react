@@ -5,28 +5,35 @@ import Card from "../ui/card";
 import { PopularProduct } from "../utils/data";
 import ProductModal from "../ShopComponents/ProductModal";
 
-const ShopProducts = () => {
+interface ShopProductsProps {
+  products?: ProductType[];  
+  gridColsClass?: string; // <-- Add this for custom grid columns
+}
+
+const ShopProducts = ({ products, gridColsClass = "grid-cols-1 sm:grid-cols-2 md:grid-cols-3" }: ShopProductsProps) => {
   const [selectedProduct, setSelectedProduct] = useState<ProductType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
 
-  const products = [
-    PopularProduct[5],  // Big Potatoes
-    PopularProduct[2],  // Chinese cabbage
-    PopularProduct[6],  // Corn
-    PopularProduct[4],  // Eggplant
-    PopularProduct[7],  // Cauliflower
-    PopularProduct[0],  // Green Apple
-    PopularProduct[8],  // Green Capsicum
-    PopularProduct[9],  // Green Chili
-    PopularProduct[11], // Green Cucumber
-    PopularProduct[3],  // Green Lettuce
-    PopularProduct[12], // Ladies Finger
-    PopularProduct[15], // Green Capsicum(Red)
-    PopularProduct[10], // Red Chili
-    PopularProduct[13], // Red Tomato
-    PopularProduct[14], // Fresh Mango
+  const fallbackProducts = [
+    PopularProduct[5],
+    PopularProduct[2],
+    PopularProduct[6],
+    PopularProduct[4],
+    PopularProduct[7],
+    PopularProduct[0],
+    PopularProduct[8],
+    PopularProduct[9],
+    PopularProduct[11],
+    PopularProduct[3],
+    PopularProduct[12],
+    PopularProduct[15],
+    PopularProduct[10],
+    PopularProduct[13],
+    PopularProduct[14],
   ];
+
+  const finalProducts = products ?? fallbackProducts;
 
   const getFixRate = (index: number, product: ProductType): string | undefined =>
     index === 10 ? product.fixRate : undefined;
@@ -48,8 +55,8 @@ const ShopProducts = () => {
   return (
     <section>
       <main className="h-auto my-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {products.map((product, index) => (
+        <div className={`grid ${gridColsClass} gap-6`}>
+          {finalProducts.map((product, index) => (
             <Card
               key={`${product.id}-${index}`}
               id={product.id}
