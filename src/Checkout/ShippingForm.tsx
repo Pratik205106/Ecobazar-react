@@ -14,16 +14,17 @@ const stateOptions = ["Lumbini", "Maharashtra", "Beijing", "New York"];
 const ShippingForm = ({ register, errors }: Props) => {
   return (
     <section className="mt-8">
-      <h2 className="text-xl font-medium">Shipping Address</h2>
+      <h2 className="text-xl font-medium mb-4">Shipping Address</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-5">
+      {/* Grid layout for name/company fields */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <InputField
           label="Shipping First Name"
           name="shippingFirstName"
           register={register}
           error={errors.shippingFirstName}
           placeholder="Enter first name"
-          className="h-[3.0625rem] w-[17.5rem]"
+          className="h-[3.0625rem] w-full"
         />
         <InputField
           label="Shipping Last Name"
@@ -31,7 +32,7 @@ const ShippingForm = ({ register, errors }: Props) => {
           register={register}
           error={errors.shippingLastName}
           placeholder="Enter last name"
-          className="h-[3.0625rem] w-[17.5rem]"
+          className="h-[3.0625rem] w-full"
         />
         <InputField
           label="Shipping Company Name"
@@ -39,10 +40,11 @@ const ShippingForm = ({ register, errors }: Props) => {
           register={register}
           optional={true}
           placeholder="Optional"
-          className="h-[3.0625rem] w-[17.5rem]"
+          className="h-[3.0625rem] w-full"
         />
       </div>
 
+      {/* Full width street address */}
       <div className="mt-4">
         <InputField
           label="Shipping Street Address"
@@ -54,14 +56,15 @@ const ShippingForm = ({ register, errors }: Props) => {
         />
       </div>
 
-      <div className="flex gap-4 mt-4">
+      {/* Grid layout for country, state, zip */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         <SelectField
           label="Shipping Country / Region"
           name="shippingCountry"
           register={register}
           options={countryOptions}
           error={errors.shippingCountry}
-          className="h-[3.0625rem] w-[17.5rem]"
+          className="h-[3.0625rem] w-full"
         />
         <SelectField
           label="Shipping State"
@@ -69,7 +72,7 @@ const ShippingForm = ({ register, errors }: Props) => {
           register={register}
           options={stateOptions}
           error={errors.shippingState}
-          className="h-[3.0625rem] w-[17.5rem]"
+          className="h-[3.0625rem] w-full"
         />
         <InputField
           label="Shipping Zip Code"
@@ -77,7 +80,7 @@ const ShippingForm = ({ register, errors }: Props) => {
           register={register}
           error={errors.shippingZipCode}
           placeholder="Enter zip code"
-          className="h-[3.0625rem] w-[17.5rem]"
+          className="h-[3.0625rem] w-full"
         />
       </div>
     </section>
