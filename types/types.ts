@@ -35,7 +35,7 @@ export interface ProductType {
   price: number;
   rate: string;
   fixRate?: string;
-  star?: number | string;
+  star?: number;
   reviewCount?: number;
   sku?: string;
   brandLogo?: string;
