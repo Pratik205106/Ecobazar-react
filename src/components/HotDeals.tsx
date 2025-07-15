@@ -188,7 +188,7 @@ const HotDeals = () => {
   ];
 
   return (
-    <section className="max-w-[82.5rem] w-full mx-auto px-4 my-12">
+    <section className="max-w-[82.5rem] w-full mx-auto  my-12">
       <h1 className="font-semibold text-[#1A1A1A] text-[2rem] mb-6">Hot Deals</h1>
 
       {/* Top Section: Image + Selected Products */}
