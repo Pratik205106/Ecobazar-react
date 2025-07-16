@@ -9,6 +9,7 @@ interface SelectFieldProps {
   error?: FieldError;
   requiredMessage?: string;
   className?: string;
+    id?: string;
 }
 
 const SelectField = ({

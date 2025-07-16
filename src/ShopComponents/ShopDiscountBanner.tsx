@@ -12,14 +12,14 @@ const ShopDiscountBanner = () => {
     minutes: "34",
     seconds: "56",
   };
-
+ 
   return (
     <section className="mt-6">
       <div className="relative w-full max-w-[82.5rem] h-[18rem] sm:h-[20rem] md:h-[22rem] lg:h-[22.375rem] rounded-md overflow-hidden mx-auto">
         <img
           src={bannerImg}
-          style={{ transform: "scaleX(-1)" }}
-          alt="Mix Vegetables Discount Banner"
+          style={{ transform: "scaleX(-1)" }} 
+          alt="Mix Vegetables Discount Banner"    
           role="img"
           className="w-full h-full object-cover"
         />

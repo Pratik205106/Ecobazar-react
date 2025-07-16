@@ -125,11 +125,13 @@ export type SocialMediaData = SocialMedia[];
 
 export interface CartItem {
   id: number;
-  name: string;
+  name?: string;
+  title?: string;
   price: number;
   quantity: number;
   image: string;
   star?: number;
+  
 } 
 
 

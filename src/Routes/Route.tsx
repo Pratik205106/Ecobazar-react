@@ -7,7 +7,7 @@ import Blog from "../pages/Blog";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 import ShoppingCart from "../ShoppingCrat/ShoppingCart";
-import OrderSummary from "../Checkout/OrderSummery";
+// import OrderSummary from "../Checkout/OrderSummery";
 import Checkout from "../pages/Checkout";
 import ProductDetailsPage from "../pages/ProductDetailsPage";
 
@@ -44,10 +44,10 @@ export const route = createBrowserRouter([
         path: '/cart',
         element:<ShoppingCart/>
       },
-      {
-        path: '/order-summary',
-        element: <OrderSummary/>
-      },
+      // {
+      //   path: '/order-summary',
+      //   element: <OrderSummary/>
+      // },
       {
         path:'/checkout',
         element:<Checkout/>

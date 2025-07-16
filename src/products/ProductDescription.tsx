@@ -2,7 +2,7 @@ import { FaCheckCircle } from "react-icons/fa";
 
 const ProductDescription = () => {
   return (
-    <div className="space-y-4 text-[#808080] text-sm leading-relaxed h-[435px] w-[648px]">
+    <div className="space-y-4 text-[#808080] text-sm leading-relaxed w-full max-w-[648px] px-4 sm:px-6 lg:px-0 h-auto sm:h-[435px]">
       <p>
         Sed commodo aliquam dui ac porta. Fusce ipsum felis, imperdiet at
         posuere ac, viverra at mauris. Maecenas tincidunt ligula a sem
@@ -28,7 +28,7 @@ const ProductDescription = () => {
           "Proin convallis odio volutpat finibus posuere.",
         ].map((item, index) => (
           <li key={index} className="flex items-start gap-2 text-green-600">
-            <FaCheckCircle className="mt-1" />
+            <FaCheckCircle className="mt-1 shrink-0" />
             <span className="text-gray-700">{item}</span>
           </li>
         ))}
