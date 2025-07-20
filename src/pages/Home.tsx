@@ -13,11 +13,6 @@ import HotDeals from "../components/HotDeals";
 
 
 
-
-
-
-
-
 const Home = () => {
   return (
     <>
