@@ -19,19 +19,26 @@ interface ProductModalProps {
   isEmbedded?: boolean;
 }
 
-const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProps) => {
+const ProductModal = ({
+  product,
+  onClose,
+  isEmbedded = false,
+}: ProductModalProps) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const thumbnailRef = useRef<HTMLDivElement>(null);
 
   const imageList = product.images ?? [product.image];
   const rating =
-    typeof product.star === "string" ? parseFloat(product.star) : product.star ?? 0;
+    typeof product.star === "string"
+      ? parseFloat(product.star)
+      : product.star ?? 0;
 
   const discountPercent = product.fixRate
     ? Math.round(
         ((parseFloat(product.fixRate.replace("$", "")) - product.price) /
-          parseFloat(product.fixRate.replace("$", ""))) * 100
+          parseFloat(product.fixRate.replace("$", ""))) *
+          100
       )
     : null;
 
@@ -58,10 +65,13 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
   };
 
   const scrollThumbnails = (direction: "up" | "down") => {
-    thumbnailRef.current?.scrollBy({
-      top: direction === "up" ? -80 : 80,
-      behavior: "smooth",
-    });
+    if (thumbnailRef.current) {
+      const scrollAmount = 80;
+      thumbnailRef.current.scrollBy({
+        top: direction === "up" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -91,35 +101,72 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
         {/* Image Section */}
         <div className="flex flex-col md:flex-row gap-4 w-full md:w-1/2">
           <div className="flex flex-col items-center gap-2">
-            <button onClick={() => scrollThumbnails("up")} className="text-[#999999] hover:text-black">
+            <button
+              onClick={() => scrollThumbnails("up")}
+              className="text-[#999999] hover:text-black"
+            >
               <FaChevronUp />
             </button>
+
+            {/* Angle thumbnails using rotation */}
             <div
               ref={thumbnailRef}
               className="flex flex-col gap-2 overflow-y-auto max-h-[300px] pr-1 custom-scrollbar"
             >
-              {imageList.map((img, index) => (
-                <img
+              {[0, 90, 180, 270].map((angle, index) => (
+                <button
                   key={index}
-                  src={img}
-                  alt={`thumb-${index}`}
                   onClick={() => setSelectedIndex(index)}
-                  className={`w-[65px] h-[65px] object-cover cursor-pointer border p-1 rounded-md ${
-                    selectedIndex === index ? "border-green-500" : "border-gray-300"
+                  className={`w-[65px] h-[65px] overflow-hidden rounded-md border p-1 ${
+                    selectedIndex === index
+                      ? "border-green-500"
+                      : "border-gray-300"
                   }`}
-                />
+                >
+                  <img
+                    src={product.image}
+                    alt={`thumb-${index}`}
+                    className="w-full h-full object-contain"
+                    style={{ transform: `rotate(${angle}deg)` }}
+                  />
+                </button>
               ))}
             </div>
-            <button onClick={() => scrollThumbnails("down")} className="text-[#999999] hover:text-black">
+
+            <button
+              onClick={() => scrollThumbnails("down")}
+              className="text-[#999999] hover:text-black"
+            >
               <FaChevronDown />
             </button>
           </div>
-          <div className="flex-1">
-            <img
-              src={imageList[selectedIndex]}
-              alt={`product-${selectedIndex}`}
-              className="w-full rounded-md object-contain"
-            />
+
+          {/* Rotated Main Image */}
+          <div className="flex-1 flex items-center justify-center">
+            <div
+              style={{
+                width: 400,
+                height: 400,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={product.image}
+                alt={`product-${selectedIndex}`}
+                className="rounded-md object-contain transition-transform duration-300"
+                style={{
+                  transform: `rotate(${[0, 90, 180, 270][selectedIndex]}deg)`,
+                  transformOrigin: "center center",
+                  willChange: "transform",
+                  backfaceVisibility: "hidden",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                }}
+              />
+            </div>
           </div>
         </div>
 
@@ -141,13 +188,18 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
                 {product.reviewCount ?? "4"} Review
               </span>
               <span className="text-[#333333] font-medium">
-                SKU: <span className="text-[#666666]">{product.sku ?? "000-000"}</span>
+                SKU:{" "}
+                <span className="text-[#666666]">
+                  {product.sku ?? "000-000"}
+                </span>
               </span>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 mt-5">
               {product.fixRate && (
-                <span className="line-through text-gray-400 text-lg">{product.fixRate}</span>
+                <span className="line-through text-gray-400 text-lg">
+                  {product.fixRate}
+                </span>
               )}
               <span className="text-[#2C742F] text-[24px] font-medium">
                 ${product.price.toFixed(2)}
@@ -164,7 +216,9 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mt-6">
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-[14px] text-[#1A1A1A]">Brand:</span>
+              <span className="font-semibold text-[14px] text-[#1A1A1A]">
+                Brand:
+              </span>
               <div className="flex flex-col items-center gap-1 h-[56px] w-[56px] border border-[#E6E6E6] rounded-md p-1">
                 <img
                   src={product.brandLogo ?? "/brand-logo.png"}
@@ -184,7 +238,9 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
             </div>
           </div>
 
-          <p className="text-[#808080] text-sm max-w-full sm:max-w-[540px]">{product.description}</p>
+          <p className="text-[#808080] text-sm max-w-full sm:max-w-[540px]">
+            {product.description}
+          </p>
           <hr className="border-[#E6E6E6] h-[2px] w-full mt-6" />
 
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -210,7 +266,9 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
 
           <p className="text-sm">
             <span className="font-semibold text-[#1A1A1A]">Category:</span>{" "}
-            <span className="text-[#808080]">{product.category ?? "Uncategorized"}</span>
+            <span className="text-[#808080]">
+              {product.category ?? "Uncategorized"}
+            </span>
           </p>
           <p className="text-sm">
             <span className="font-semibold text-[#1A1A1A]">Tags:</span>{" "}
@@ -219,7 +277,7 @@ const ProductModal = ({ product, onClose, isEmbedded = false }: ProductModalProp
             </span>
           </p>
         </div>
-      </div>  
+      </div>
     </div>
   );
 };
