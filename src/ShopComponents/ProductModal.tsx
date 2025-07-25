@@ -26,6 +26,7 @@ const ProductModal = ({
 }: ProductModalProps) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const thumbnailRef = useRef<HTMLDivElement>(null);
 
   const imageList = product.images ?? [product.image];
@@ -151,19 +152,24 @@ const ProductModal = ({
                 alignItems: "center",
                 justifyContent: "center",
                 overflow: "hidden",
+                cursor: "pointer",
               }}
             >
               <img
                 src={product.image}
                 alt={`product-${selectedIndex}`}
                 className="rounded-md object-contain transition-transform duration-300"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
                 style={{
-                  transform: `rotate(${[0, 90, 180, 270][selectedIndex]}deg)`,
                   transformOrigin: "center center",
                   willChange: "transform",
                   backfaceVisibility: "hidden",
                   maxWidth: "100%",
                   maxHeight: "100%",
+                  transform: `rotate(${[0, 90, 180, 270][selectedIndex]}deg) scale(${
+                    isHovered ? 1.1 : 1
+                  })`,
                 }}
               />
             </div>

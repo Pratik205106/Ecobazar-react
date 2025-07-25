@@ -13,19 +13,6 @@ export interface CategoryData {
 
 export type CategoriesData = CategoryData[];
 
-// export interface ProductType {
-//   id: number;
-//   title: string;
-//   name: string;
-//   image: string;
-//   rate: string;
-//   fixRate?: string;
-//   star?: number;
-//   badge?: string;
-//   price: number;
-//   quantity: number;
-//   images?: string[];
-// }
 export interface ProductType {
   id: number;
   name: string;
@@ -170,7 +157,7 @@ export interface CartTotalDisplayProps {
   couponDiscount: number;
   total: number;
   cartItems: CartItem[];
-  // onProceedToCheckout: () => void; // <-- Add this line
+
 }
 
 
