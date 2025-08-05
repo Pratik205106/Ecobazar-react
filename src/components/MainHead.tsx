@@ -36,7 +36,7 @@ const MainHead = () => {
           <CiHeart className="cursor-pointer text-3xl sm:text-4xl" />
           <div className="hidden md:block border-l border-gray-400 h-6 mx-2" />
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2">
-            <NavLink to="/shop">
+            <NavLink to="/cart#cart-total-display">
               <CartIcon />
             </NavLink>
             <NavLink to="/cart#cart-total-display">
